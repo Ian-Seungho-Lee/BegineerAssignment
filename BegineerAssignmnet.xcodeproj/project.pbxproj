@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,11 @@
 		3CFB8B9F263011AE00055C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB8B9D263011AE00055C49 /* LaunchScreen.storyboard */; };
 		3CFB8BAA263011AE00055C49 /* BegineerAssignmnetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8BA9263011AE00055C49 /* BegineerAssignmnetTests.swift */; };
 		3CFB8BB5263011AE00055C49 /* BegineerAssignmnetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8BB4263011AE00055C49 /* BegineerAssignmnetUITests.swift */; };
+		3CFB8BFC26301C9A00055C49 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8BFB26301C9A00055C49 /* BaseRouter.swift */; };
+		3CFB8C1826301E2500055C49 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C1726301E2500055C49 /* AppDependencies.swift */; };
+		3CFB8C2126301F5400055C49 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C2026301F5400055C49 /* AppRouter.swift */; };
+		3CFB8C2A26301FA300055C49 /* TabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C2926301FA300055C49 /* TabbarRouter.swift */; };
+		3CFB8C452630249B00055C49 /* TabbarDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C442630249B00055C49 /* TabbarDependencies.swift */; };
 		4C79CA31FCD094D7FA5167EE /* Pods_BegineerAssignmnetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4732AE74EC8E107C9F66561E /* Pods_BegineerAssignmnetTests.framework */; };
 		7D17BB94ECA9B3EB7F307F36 /* Pods_BegineerAssignmnet_BegineerAssignmnetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A45B3970E5832CD78FC1E5 /* Pods_BegineerAssignmnet_BegineerAssignmnetUITests.framework */; };
 		94B2C25A9EA1C14D91E9D917 /* Pods_BegineerAssignmnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B6FB75B5ED803FA811235D /* Pods_BegineerAssignmnet.framework */; };
@@ -50,6 +55,11 @@
 		3CFB8BB0263011AE00055C49 /* BegineerAssignmnetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BegineerAssignmnetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFB8BB4263011AE00055C49 /* BegineerAssignmnetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BegineerAssignmnetUITests.swift; sourceTree = "<group>"; };
 		3CFB8BB6263011AE00055C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CFB8BFB26301C9A00055C49 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		3CFB8C1726301E2500055C49 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		3CFB8C2026301F5400055C49 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		3CFB8C2926301FA300055C49 /* TabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarRouter.swift; sourceTree = "<group>"; };
+		3CFB8C442630249B00055C49 /* TabbarDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarDependencies.swift; sourceTree = "<group>"; };
 		4732AE74EC8E107C9F66561E /* Pods_BegineerAssignmnetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BegineerAssignmnetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C6A02E904088E3B5816137 /* Pods-BegineerAssignmnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BegineerAssignmnet.release.xcconfig"; path = "Target Support Files/Pods-BegineerAssignmnet/Pods-BegineerAssignmnet.release.xcconfig"; sourceTree = "<group>"; };
 		63D119EA5F8AF393E438E1A0 /* Pods-BegineerAssignmnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BegineerAssignmnet.debug.xcconfig"; path = "Target Support Files/Pods-BegineerAssignmnet/Pods-BegineerAssignmnet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +153,8 @@
 		3CFB8BC5263011B400055C49 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3CFB8BFB26301C9A00055C49 /* BaseRouter.swift */,
+				3CFB8BFA26301C8700055C49 /* VIPER */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -150,8 +162,9 @@
 		3CFB8BC9263011B500055C49 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				3CFB8BD62630120A00055C49 /* New */,
 				3CFB8BD72630121000055C49 /* Tabbar */,
+				3CFB8C2826301F8200055C49 /* Search */,
+				3CFB8BD62630120A00055C49 /* New */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -170,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				3CFB8BD2263011F200055C49 /* Delegate */,
+				3CFB8C1726301E2500055C49 /* AppDependencies.swift */,
+				3CFB8C2026301F5400055C49 /* AppRouter.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -194,8 +209,24 @@
 		3CFB8BD72630121000055C49 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				3CFB8C2926301FA300055C49 /* TabbarRouter.swift */,
+				3CFB8C442630249B00055C49 /* TabbarDependencies.swift */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		3CFB8BFA26301C8700055C49 /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		3CFB8C2826301F8200055C49 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		83CD315AF03C633335C02437 /* Pods */ = {
@@ -208,7 +239,6 @@
 				F17A06E0A4404909061B3EA7 /* Pods-BegineerAssignmnetTests.debug.xcconfig */,
 				CBCDCC1F485111A9ACAB2F65 /* Pods-BegineerAssignmnetTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -460,8 +490,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CFB8B97263011AD00055C49 /* ViewController.swift in Sources */,
+				3CFB8C2A26301FA300055C49 /* TabbarRouter.swift in Sources */,
 				3CFB8B93263011AD00055C49 /* AppDelegate.swift in Sources */,
 				3CFB8B95263011AD00055C49 /* SceneDelegate.swift in Sources */,
+				3CFB8C2126301F5400055C49 /* AppRouter.swift in Sources */,
+				3CFB8C1826301E2500055C49 /* AppDependencies.swift in Sources */,
+				3CFB8C452630249B00055C49 /* TabbarDependencies.swift in Sources */,
+				3CFB8BFC26301C9A00055C49 /* BaseRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
