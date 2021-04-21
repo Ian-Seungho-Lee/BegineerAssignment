@@ -1,0 +1,6 @@
+framework module Pods_BegineerAssignmnetTests {
+  umbrella header "Pods-BegineerAssignmnetTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
