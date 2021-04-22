@@ -1,5 +1,5 @@
 //
-//  TitleLabel.swift
+//  ContentsLabel.swift
 //  BegineerAssignmnet
 //
 //  Created by Ian on 2021/04/22.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class TitleLabel: UILabel {
+class ContentsLabel: UILabel {
   convenience init(
-    color: UIColor = Theme.Colors.Texts.primary,
-    font: UIFont = .systemFont(ofSize: 20, weight: .medium)
+    color: UIColor = Theme.Colors.Texts.secondary,
+    font: UIFont = .systemFont(ofSize: 14, weight: .regular)
   ) {
     self.init()
     self.textColor = color

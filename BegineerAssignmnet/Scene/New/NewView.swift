@@ -13,8 +13,16 @@ import SnapKit
 final class NewView: UIViewController {
   private var bookListView: BaseCollectionView!
   private let disposeBag = DisposeBag()
+  private let presenter: NewPresenterInterface
   
+  init(presenter: NewPresenterInterface) {
+    self.presenter = presenter
+    super.init(nibName: nil, bundle: nil)
+  }
   
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }
 
 extension NewView {
@@ -32,7 +40,7 @@ extension NewView {
 
 extension NewView {
   private func bind() {
-
+    
     
   }
 }
@@ -45,10 +53,9 @@ extension NewView: UICollectionViewDelegateFlowLayout {
       .rx.setDelegate(self)
       .disposed(by: disposeBag)
     
-    
-    
-    
-    
-
+    collectionView.register(
+      NewViewCollectionViewCell.self,
+      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
+    )
   }
 }

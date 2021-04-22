@@ -10,12 +10,15 @@ import UIKit
 enum NewViewConstant {
   static let linespacing = 10
   static let itemspacing = 10
+  static let horizontal = 10
+  static let vertical = 10
 }
 
 final class NewViewCollectionViewCell: UICollectionViewCell {
-  
-  
-  
+  private let titleLabel = TitleLabel()
+  private let subtitleLabel = ContentsLabel()
+  private let priceLabel = ContentsLabel()
+  private let imageView = UIImageView()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -30,10 +33,41 @@ final class NewViewCollectionViewCell: UICollectionViewCell {
 
 extension NewViewCollectionViewCell {
   private func setupCollectionViewCell() {
-      layer.masksToBounds = true
-      backgroundColor = Theme.Colors.Background.container
-      layer.cornerRadius = 5
+    layer.masksToBounds = true
+    backgroundColor = Theme.Colors.Background.container
+    layer.cornerRadius = 5 // 네놈은 이제 뷰가 생성된 이후..awakeFromNib으로 하세용
+    
+    setupMainView()
+  }
+  
+  private func setupMainView() {
+    [titleLabel, subtitleLabel, priceLabel, imageView].forEach { addSubview($0) }
+    
+    imageView.snp.makeConstraints {
+      $0.top.leading.trailing.equalToSuperview()
+    }
+    
+    titleLabel.snp.makeConstraints {
+      $0.top.equalTo(imageView.snp.bottom).inset(NewViewConstant.vertical)
+      $0.leading.trailing.equalToSuperview().inset(NewViewConstant.horizontal)
+    }
+    
+    subtitleLabel.snp.makeConstraints {
+      $0.top.equalTo(titleLabel.snp.bottom).inset(NewViewConstant.vertical/2)
+      $0.leading.trailing.equalToSuperview().inset(NewViewConstant.horizontal)
+    }
+    
+    priceLabel.snp.makeConstraints {
+      $0.top.equalTo(subtitleLabel.snp.bottom).inset(NewViewConstant.vertical/2)
+      $0.leading.trailing.equalToSuperview().inset(NewViewConstant.horizontal)
+    }
   }
 }
 
-
+extension NewViewCollectionViewCell {
+  func bind(to model: Book) {
+    self.titleLabel.text = model.title
+    self.subtitleLabel.text = model.subtitle
+    self.priceLabel.text = model.price
+  }
+}

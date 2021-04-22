@@ -7,26 +7,32 @@
 
 import UIKit
 
-final class NewRouter: NavigationRouterType {
-    let navigationController: UINavigationController
-    let dependencies: NewDependencies
-    
-    init(
-        navigationController: UINavigationController,
-        dependencies: NewDependencies
-    ) {
-        self.navigationController = navigationController
-        self.dependencies = dependencies
-    }
-    
-    func start() {
-        showNewBookList()
-    }
+final class NewRouter: NavigationRouterType, NewRouterInterface {
+  let navigationController: UINavigationController
+  let dependencies: NewDependencies
+  
+  init(
+    navigationController: UINavigationController,
+    dependencies: NewDependencies
+  ) {
+    self.navigationController = navigationController
+    self.dependencies = dependencies
+  }
+  
+  func start() {
+    showNewBookList()
+  }
 }
 
 extension NewRouter {
-    private func showNewBookList() {
-        let viewController = NewView()
-        navigationController.show(viewController, sender: nil)
-    }
+  private func showNewBookList() {
+    let interactor = NewInteractor(dependencies: dependencies)
+    let presenter = NewPresenter(
+      router: self,
+      interactor: interactor
+    )
+    
+    let viewController = NewView(presenter: presenter)
+    navigationController.show(viewController, sender: nil)
+  }
 }

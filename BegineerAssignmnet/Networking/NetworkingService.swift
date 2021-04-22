@@ -7,6 +7,8 @@
 
 import Foundation
 import Alamofire
+import RxAlamofire
+import RxSwift
 
 final class NetworkingService {
   private let sessionManager: Alamofire.Session
@@ -21,10 +23,33 @@ final class NetworkingService {
   }
 }
 
-/// 추가 : RxAlamofire 아니면 Reactive Wrapper로
-/// ==> Observable<Response> 처럼 변경 혹은 Observable<(Result...였던 것..)>이나 뭐 등등
-
 extension NetworkingService: Networking {
+  // 당연히 제
+  func requestObservable<Response>(
+    _ endpoint: Endpoint<Response>
+  ) -> Observable<Response> {
+    sessionManager.rx.request(
+      endpoint.method,
+      endpoint.url,
+      parameters: endpoint.parameters,
+      encoding: endpoint.encoding,
+      headers: endpoint.headers
+    )
+    .responseData()
+    .flatMapLatest { response, data -> Observable<Response> in
+      print("[\(Date())] \(String(describing: response.url))", response.statusCode)
+      
+      do {
+        let response = try endpoint.decode(data)
+        return .just(response)
+      }
+      catch(let err) {
+        print("[\(Date())] \(String(describing: response.url))", err.localizedDescription, #line, #function)
+        return .empty()
+      }
+    }
+  }
+  
   func request<Response>(
     _ endpoint: Endpoint<Response>,
     then completion: @escaping (Result<Response, Error>) -> Void
