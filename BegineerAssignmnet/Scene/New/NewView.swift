@@ -35,16 +35,28 @@ extension NewView {
     super.viewDidLoad()
     
     setupCollectionView()
-    
-    let viewdidLoad = PublishSubject<Void>()
-    viewdidLoad.onNext(())
+    bind()
   }
 }
 
 extension NewView {
   private func bind() {
+    let viewDidLoad = PublishSubject<Void>()
+    let collectionView = bookListView.collectionView
     
+    let inputs = NewPresenter.Input(
+      viewDidLoad: viewDidLoad
+    )
     
+    let outputs = presenter.transform(to: inputs)
+    
+    outputs.bookList
+//      .do { print($0, #line) } // cell이 이상한 일이 뭐가 있는가 과연..??
+      .drive(onNext: {
+        print($0)
+      })
+      .disposed(by: disposeBag)
+    viewDidLoad.onNext(())
   }
 }
 
@@ -60,5 +72,15 @@ extension NewView: UICollectionViewDelegateFlowLayout {
       NewViewCollectionViewCell.self,
       forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
     )
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    let width = UIScreen.main.bounds.width
+
+    return CGSize(width: width/2, height: width/2)
   }
 }

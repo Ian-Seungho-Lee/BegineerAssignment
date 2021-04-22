@@ -36,14 +36,18 @@ extension NetworkingService: Networking {
     )
     .responseData()
     .flatMapLatest { response, data -> Observable<Response> in
-      print("[\(Date())] \(String(describing: response.url))", response.statusCode)
+      print("[\(Date())] \(String(describing: response.url!))", response.statusCode)
+      
+      // 이것도 개선이 되어야겠죠? Error일때는.. retry하고 errorStream을 만들어야죠.
+      // 모야는 다 해줬던 거였네요
+      // do try 말고 애초에 Observable<Response>를 뱉도록 해주십쇼
       
       do {
         let response = try endpoint.decode(data)
         return .just(response)
       }
       catch(let err) {
-        print("[\(Date())] \(String(describing: response.url))", err.localizedDescription, #line, #function)
+        print("[\(Date())] \(String(describing: response.url!))", err.localizedDescription, #line, #function)
         return .empty()
       }
     }

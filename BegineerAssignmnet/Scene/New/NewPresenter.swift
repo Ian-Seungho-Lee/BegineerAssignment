@@ -26,21 +26,19 @@ final class NewPresenter: NewPresenterInterface {
   }
   
   struct Output {
-//    let bookList: Driver<[Book]>
+    let bookList: Driver<[Book]>
   }
 }
 
 extension NewPresenter {
   func transform(to inputs: Input) -> Output {
-    let d = interactor.fetchNewBookAPI()
-      .bind(onNext: {
-        print($0)
-      })
+    weak var weakSelf = self
     
+    let bookList = inputs.viewDidLoad
+      .flatMapLatest { _ -> Observable<[Book]> in
+        return weakSelf?.interactor.fetchNewBookAPI() ?? .empty()
+      }
     
-    
-    
-    
-    return .init()
+    return .init(bookList: bookList.asDriver(onErrorDriveWith: .empty()))
   }
 }
