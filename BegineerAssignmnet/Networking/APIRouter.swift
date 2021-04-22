@@ -8,6 +8,4 @@
 import Foundation
 
 // to be extended
-enum APIRouter {
-  
-}
+enum APIRouter { }

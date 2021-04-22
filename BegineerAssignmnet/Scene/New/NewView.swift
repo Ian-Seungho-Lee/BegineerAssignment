@@ -7,23 +7,48 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SnapKit
 
 final class NewView: UIViewController {
-  private var bookListCollectionView: BaseCollectionView!
+  private var bookListView: BaseCollectionView!
+  private let disposeBag = DisposeBag()
   
   
 }
 
-// 여기랑 엮이는게 누구누군지랑.. 그런것들을 좀 알아보자 Action handling이 어떻게 일어나는가요?
 extension NewView {
   override func loadView() {
-    bookListCollectionView = BaseCollectionView()
-    view = bookListCollectionView
+    bookListView = BaseCollectionView()
+    view = bookListView
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setupCollectionView()
+  }
+}
+
+extension NewView {
+  private func bind() {
+
+    
+  }
+}
+
+extension NewView: UICollectionViewDelegateFlowLayout {
+  private func setupCollectionView() {
+    let collectionView = bookListView.collectionView
+    
+    collectionView
+      .rx.setDelegate(self)
+      .disposed(by: disposeBag)
+    
+    
+    
+    
+    
+
   }
 }
