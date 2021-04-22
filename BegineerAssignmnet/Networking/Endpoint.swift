@@ -36,7 +36,6 @@ final class Endpoint<Response> {
   }
 }
 
-
 extension Endpoint where Response: Decodable {
   convenience init(
     method: HTTPMethod = .get,

@@ -10,3 +10,7 @@ import Foundation
 protocol Networking {
   func request<Response>(_ endpoint: Endpoint<Response>, then completion: @escaping (Swift.Result<Response, Error>) -> Void)
 }
+
+protocol NetworkBase {
+  var networkingService: Networking { get }
+}

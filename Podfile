@@ -10,8 +10,8 @@ target 'BegineerAssignmnet' do
   pod 'RxCocoa', '5.1.1'
   pod 'RxDataSources', '4.0.1'
   pod 'Alamofire'
+  pod 'RxAlamofire'
   pod 'SnapKit'
-
 
   target 'BegineerAssignmnetTests' do
     inherit! :search_paths

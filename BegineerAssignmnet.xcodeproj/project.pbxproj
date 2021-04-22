@@ -18,16 +18,20 @@
 		3CFB8C2126301F5400055C49 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C2026301F5400055C49 /* AppRouter.swift */; };
 		3CFB8C2A26301FA300055C49 /* TabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C2926301FA300055C49 /* TabbarRouter.swift */; };
 		3CFB8C452630249B00055C49 /* TabbarDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C442630249B00055C49 /* TabbarDependencies.swift */; };
-		3CFB8C4F26310FC000055C49 /* NewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C4C26310FC000055C49 /* NewDependencies.swift */; };
-		3CFB8C5026310FC000055C49 /* NewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C4D26310FC000055C49 /* NewRouter.swift */; };
-		3CFB8C5126310FC100055C49 /* NewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C4E26310FC000055C49 /* NewView.swift */; };
-		3CFB8C5826310FD500055C49 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C5526310FD500055C49 /* SearchView.swift */; };
-		3CFB8C5926310FD500055C49 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C5626310FD500055C49 /* SearchRouter.swift */; };
-		3CFB8C5A26310FD500055C49 /* SearchDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C5726310FD500055C49 /* SearchDependencies.swift */; };
-		3CFB8C5F26310FF000055C49 /* Theme+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C5E26310FF000055C49 /* Theme+Color.swift */; };
 		3CFB8C6B263110C300055C49 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C6A263110C300055C49 /* Networking.swift */; };
 		3CFB8C732631111300055C49 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C722631111300055C49 /* Endpoint.swift */; };
 		3CFB8C78263112D300055C49 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C77263112D300055C49 /* NetworkingService.swift */; };
+		3CFB8C8B26311B5000055C49 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C8A26311B5000055C49 /* URLBuilder.swift */; };
+		3CFB8C9526311C0000055C49 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8C9426311C0000055C49 /* AppConfiguration.swift */; };
+		3CFB8CCB26312D8F00055C49 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CCA26312D8F00055C49 /* BaseCollectionView.swift */; };
+		3CFB8CD226312DD300055C49 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CCF26312DD300055C49 /* SearchView.swift */; };
+		3CFB8CD326312DD300055C49 /* SearchDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CD026312DD300055C49 /* SearchDependencies.swift */; };
+		3CFB8CD426312DD300055C49 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CD126312DD300055C49 /* SearchRouter.swift */; };
+		3CFB8CDB26312DDC00055C49 /* NewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CD826312DDC00055C49 /* NewDependencies.swift */; };
+		3CFB8CDC26312DDC00055C49 /* NewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CD926312DDC00055C49 /* NewRouter.swift */; };
+		3CFB8CDD26312DDC00055C49 /* NewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CDA26312DDC00055C49 /* NewView.swift */; };
+		3CFB8CE526312DE600055C49 /* Theme+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CE426312DE600055C49 /* Theme+Color.swift */; };
+		3CFB8CED2631307200055C49 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8CEC2631307200055C49 /* APIRouter.swift */; };
 		4C79CA31FCD094D7FA5167EE /* Pods_BegineerAssignmnetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4732AE74EC8E107C9F66561E /* Pods_BegineerAssignmnetTests.framework */; };
 		7D17BB94ECA9B3EB7F307F36 /* Pods_BegineerAssignmnet_BegineerAssignmnetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A45B3970E5832CD78FC1E5 /* Pods_BegineerAssignmnet_BegineerAssignmnetUITests.framework */; };
 		94B2C25A9EA1C14D91E9D917 /* Pods_BegineerAssignmnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B6FB75B5ED803FA811235D /* Pods_BegineerAssignmnet.framework */; };
@@ -68,16 +72,20 @@
 		3CFB8C2026301F5400055C49 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		3CFB8C2926301FA300055C49 /* TabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarRouter.swift; sourceTree = "<group>"; };
 		3CFB8C442630249B00055C49 /* TabbarDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarDependencies.swift; sourceTree = "<group>"; };
-		3CFB8C4C26310FC000055C49 /* NewDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDependencies.swift; path = ../../../../../Downloads/BegineerAssignment/BegineerAssignmnet/Scene/New/NewDependencies.swift; sourceTree = "<group>"; };
-		3CFB8C4D26310FC000055C49 /* NewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewRouter.swift; path = ../../../../../Downloads/BegineerAssignment/BegineerAssignmnet/Scene/New/NewRouter.swift; sourceTree = "<group>"; };
-		3CFB8C4E26310FC000055C49 /* NewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewView.swift; path = ../../../../../Downloads/BegineerAssignment/BegineerAssignmnet/Scene/New/NewView.swift; sourceTree = "<group>"; };
-		3CFB8C5526310FD500055C49 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchView.swift; path = ../../../../../Downloads/BegineerAssignment/BegineerAssignmnet/Scene/Search/SearchView.swift; sourceTree = "<group>"; };
-		3CFB8C5626310FD500055C49 /* SearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchRouter.swift; path = ../../../../../Downloads/BegineerAssignment/BegineerAssignmnet/Scene/Search/SearchRouter.swift; sourceTree = "<group>"; };
-		3CFB8C5726310FD500055C49 /* SearchDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchDependencies.swift; path = ../../../../../Downloads/BegineerAssignment/BegineerAssignmnet/Scene/Search/SearchDependencies.swift; sourceTree = "<group>"; };
-		3CFB8C5E26310FF000055C49 /* Theme+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Theme+Color.swift"; path = "../../../../Downloads/BegineerAssignment/BegineerAssignmnet/Resources/Theme+Color.swift"; sourceTree = "<group>"; };
 		3CFB8C6A263110C300055C49 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		3CFB8C722631111300055C49 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3CFB8C77263112D300055C49 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		3CFB8C8A26311B5000055C49 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
+		3CFB8C9426311C0000055C49 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		3CFB8CCA26312D8F00055C49 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
+		3CFB8CCF26312DD300055C49 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3CFB8CD026312DD300055C49 /* SearchDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDependencies.swift; sourceTree = "<group>"; };
+		3CFB8CD126312DD300055C49 /* SearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		3CFB8CD826312DDC00055C49 /* NewDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDependencies.swift; sourceTree = "<group>"; };
+		3CFB8CD926312DDC00055C49 /* NewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRouter.swift; sourceTree = "<group>"; };
+		3CFB8CDA26312DDC00055C49 /* NewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewView.swift; sourceTree = "<group>"; };
+		3CFB8CE426312DE600055C49 /* Theme+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Color.swift"; sourceTree = "<group>"; };
+		3CFB8CEC2631307200055C49 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		4732AE74EC8E107C9F66561E /* Pods_BegineerAssignmnetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BegineerAssignmnetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C6A02E904088E3B5816137 /* Pods-BegineerAssignmnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BegineerAssignmnet.release.xcconfig"; path = "Target Support Files/Pods-BegineerAssignmnet/Pods-BegineerAssignmnet.release.xcconfig"; sourceTree = "<group>"; };
 		63D119EA5F8AF393E438E1A0 /* Pods-BegineerAssignmnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BegineerAssignmnet.debug.xcconfig"; path = "Target Support Files/Pods-BegineerAssignmnet/Pods-BegineerAssignmnet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +152,7 @@
 			children = (
 				3CFB8BD1263011EC00055C49 /* App */,
 				3CFB8BC5263011B400055C49 /* Base */,
+				3CFB8C9226311BE300055C49 /* Configuration */,
 				3CFB8C692631109100055C49 /* Networking */,
 				3CFB8BCA263011B600055C49 /* Resources */,
 				3CFB8BC9263011B500055C49 /* Scene */,
@@ -172,8 +181,8 @@
 		3CFB8BC5263011B400055C49 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3CFB8CC926312D7A00055C49 /* UI */,
 				3CFB8BFB26301C9A00055C49 /* BaseRouter.swift */,
-				3CFB8BFA26301C8700055C49 /* VIPER */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -191,7 +200,7 @@
 		3CFB8BCA263011B600055C49 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3CFB8C5E26310FF000055C49 /* Theme+Color.swift */,
+				3CFB8CE426312DE600055C49 /* Theme+Color.swift */,
 				3CFB8B9D263011AE00055C49 /* LaunchScreen.storyboard */,
 				3CFB8B9B263011AE00055C49 /* Assets.xcassets */,
 				3CFB8BA0263011AE00055C49 /* Info.plist */,
@@ -221,9 +230,9 @@
 		3CFB8BD62630120A00055C49 /* New */ = {
 			isa = PBXGroup;
 			children = (
-				3CFB8C4C26310FC000055C49 /* NewDependencies.swift */,
-				3CFB8C4D26310FC000055C49 /* NewRouter.swift */,
-				3CFB8C4E26310FC000055C49 /* NewView.swift */,
+				3CFB8CD826312DDC00055C49 /* NewDependencies.swift */,
+				3CFB8CD926312DDC00055C49 /* NewRouter.swift */,
+				3CFB8CDA26312DDC00055C49 /* NewView.swift */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -237,19 +246,12 @@
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
-		3CFB8BFA26301C8700055C49 /* VIPER */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VIPER;
-			sourceTree = "<group>";
-		};
 		3CFB8C2826301F8200055C49 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				3CFB8C5726310FD500055C49 /* SearchDependencies.swift */,
-				3CFB8C5626310FD500055C49 /* SearchRouter.swift */,
-				3CFB8C5526310FD500055C49 /* SearchView.swift */,
+				3CFB8CD026312DD300055C49 /* SearchDependencies.swift */,
+				3CFB8CD126312DD300055C49 /* SearchRouter.swift */,
+				3CFB8CCF26312DD300055C49 /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -260,8 +262,26 @@
 				3CFB8C6A263110C300055C49 /* Networking.swift */,
 				3CFB8C722631111300055C49 /* Endpoint.swift */,
 				3CFB8C77263112D300055C49 /* NetworkingService.swift */,
+				3CFB8C8A26311B5000055C49 /* URLBuilder.swift */,
+				3CFB8CEC2631307200055C49 /* APIRouter.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		3CFB8C9226311BE300055C49 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3CFB8C9426311C0000055C49 /* AppConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		3CFB8CC926312D7A00055C49 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3CFB8CCA26312D8F00055C49 /* BaseCollectionView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		83CD315AF03C633335C02437 /* Pods */ = {
@@ -524,23 +544,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFB8C5926310FD500055C49 /* SearchRouter.swift in Sources */,
 				3CFB8C2A26301FA300055C49 /* TabbarRouter.swift in Sources */,
-				3CFB8C4F26310FC000055C49 /* NewDependencies.swift in Sources */,
-				3CFB8C5026310FC000055C49 /* NewRouter.swift in Sources */,
-				3CFB8C5126310FC100055C49 /* NewView.swift in Sources */,
-				3CFB8C5F26310FF000055C49 /* Theme+Color.swift in Sources */,
+				3CFB8CDC26312DDC00055C49 /* NewRouter.swift in Sources */,
 				3CFB8C6B263110C300055C49 /* Networking.swift in Sources */,
+				3CFB8CDD26312DDC00055C49 /* NewView.swift in Sources */,
 				3CFB8B93263011AD00055C49 /* AppDelegate.swift in Sources */,
 				3CFB8B95263011AD00055C49 /* SceneDelegate.swift in Sources */,
+				3CFB8CCB26312D8F00055C49 /* BaseCollectionView.swift in Sources */,
+				3CFB8CED2631307200055C49 /* APIRouter.swift in Sources */,
+				3CFB8CD226312DD300055C49 /* SearchView.swift in Sources */,
 				3CFB8C2126301F5400055C49 /* AppRouter.swift in Sources */,
 				3CFB8C732631111300055C49 /* Endpoint.swift in Sources */,
+				3CFB8CD426312DD300055C49 /* SearchRouter.swift in Sources */,
+				3CFB8C8B26311B5000055C49 /* URLBuilder.swift in Sources */,
+				3CFB8CD326312DD300055C49 /* SearchDependencies.swift in Sources */,
 				3CFB8C78263112D300055C49 /* NetworkingService.swift in Sources */,
 				3CFB8C1826301E2500055C49 /* AppDependencies.swift in Sources */,
-				3CFB8C5A26310FD500055C49 /* SearchDependencies.swift in Sources */,
+				3CFB8C9526311C0000055C49 /* AppConfiguration.swift in Sources */,
+				3CFB8CDB26312DDC00055C49 /* NewDependencies.swift in Sources */,
 				3CFB8C452630249B00055C49 /* TabbarDependencies.swift in Sources */,
+				3CFB8CE526312DE600055C49 /* Theme+Color.swift in Sources */,
 				3CFB8BFC26301C9A00055C49 /* BaseRouter.swift in Sources */,
-				3CFB8C5826310FD500055C49 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

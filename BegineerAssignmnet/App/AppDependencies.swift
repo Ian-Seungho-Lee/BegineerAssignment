@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct AppDependencies {
-  
-  
-  
+struct AppDependencies: NetworkBase {
+  let networkingService: Networking
+  init(networkingService: Networking) {
+    self.networkingService = networkingService
+  }
 }

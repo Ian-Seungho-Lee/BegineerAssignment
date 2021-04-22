@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   ) {
     guard let scene = (scene as? UIWindowScene) else { return }
     appRouter = AppRouter(
-      appdependecies: AppDependencies(),
+      appdependecies: AppDependencies(networkingService: NetworkingService()),
       navigationController: UINavigationController()
     )
     window = UIWindow(windowScene: scene)
