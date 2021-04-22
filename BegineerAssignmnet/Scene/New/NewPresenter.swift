@@ -31,7 +31,12 @@ final class NewPresenter: NewPresenterInterface {
 }
 
 extension NewPresenter {
-  func transform(to input: Input) -> Output {
+  func transform(to inputs: Input) -> Output {
+    let d = interactor.fetchNewBookAPI()
+      .bind(onNext: {
+        print($0)
+      })
+    
     
     
     
@@ -39,7 +44,3 @@ extension NewPresenter {
     return .init()
   }
 }
-// 타르겔라씨는 Input Output 이런거 아예 신경 안쓰시긴 하던데
-// 그냥 클래스를 따로 뺴는것이 핵심이고 게다가 viewModel 내에서는 구독 안하는것이 핵심이라면
-// 그렇게 가줘도 되는거라고 보거든요
-// 프라이빗 선언 안하고,,init에서 해결하고... 뭐 이런거 아니겠어요.

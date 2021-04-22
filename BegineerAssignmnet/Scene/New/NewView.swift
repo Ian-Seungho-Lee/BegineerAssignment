@@ -35,6 +35,9 @@ extension NewView {
     super.viewDidLoad()
     
     setupCollectionView()
+    
+    let viewdidLoad = PublishSubject<Void>()
+    viewdidLoad.onNext(())
   }
 }
 

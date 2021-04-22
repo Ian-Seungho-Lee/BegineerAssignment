@@ -15,15 +15,20 @@ final class NewInteractor: NewInteractorInterface {
   }
 }
 
+// Moya의 그 Response...그립네요..
 extension NewInteractor {
-  func fetchNewBookList() {
+  static func fetchNewBookListEndpoint() -> Endpoint<NewBookResponseType<Book>> {
     let url = URLBuilder()
       .set(path: "new")
       .build()!
     
-    let endpoint = Endpoint(
-      method: .get,
-      url: url
-    )
+    return Endpoint(method: .get, url: url)
+  }
+  
+  func fetchNewBookAPI() -> Observable<[Book]> {
+    networking.requestObservable(NewInteractor.fetchNewBookListEndpoint())
+      .flatMapLatest { apiResponse -> Observable<[Book]> in
+        return .just(apiResponse.books)
+      }
   }
 }

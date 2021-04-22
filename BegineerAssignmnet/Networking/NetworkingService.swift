@@ -24,7 +24,6 @@ final class NetworkingService {
 }
 
 extension NetworkingService: Networking {
-  // 당연히 제
   func requestObservable<Response>(
     _ endpoint: Endpoint<Response>
   ) -> Observable<Response> {

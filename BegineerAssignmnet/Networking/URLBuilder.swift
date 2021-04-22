@@ -52,7 +52,6 @@ final class URLBuilder {
   }
 }
 
-
 private extension String {
     mutating func appendPathComponent(_ component: String) {
         guard !component.isEmpty else { return }
