@@ -2,18 +2,17 @@
 //  BaseCollectionView.swift
 //  BegineerAssignmnet
 //
-//  Created by Ian on 2021/04/22.
+//  Created by Ian on 2021/04/23.
 //
 
 import UIKit
 import SnapKit
-import RxSwift
-import RxCocoa
 
-class BaseCollectionView: UIView {
-  private(set) var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+///**only for NewBook View (Not base) **///
+final class BaseCollectionView: UIView {
   private let layoutConfig: LayoutConfig
-
+  private(set) var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+  
   init(layoutConfig: LayoutConfig, frame: CGRect = .zero) {
     self.layoutConfig = layoutConfig
     super.init(frame: frame)
@@ -22,28 +21,30 @@ class BaseCollectionView: UIView {
   }
   
   required init?(coder: NSCoder) {
-    self.layoutConfig = LayoutConfig(widthHeightRatio: 29/36)
+    self.layoutConfig = LayoutConfig(widthHeightRatio: 11/10)
     
     super.init(coder: coder)
     setupMainView()
   }
   
   private func setupMainView() {
-    backgroundColor = Theme.Colors.Background.primary
-    
-    addSubview(collectionView)
-    
-    collectionView.snp.makeConstraints {
-      $0.edges.equalToSuperview()
-    }
-    
     setupCollectionView()
   }
 }
 
 extension BaseCollectionView: UICollectionViewDelegateFlowLayout {
-  func setupCollectionView() {
+  private func setupCollectionView() {
+    addSubview(collectionView)
+    collectionView.backgroundColor = Theme.Colors.Background.primary
+    collectionView.delegate = self
+    collectionView.register(
+      NewViewCollectionViewCell.self,
+      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
+    )
     
+    collectionView.snp.makeConstraints { (make) in
+        make.edges.equalToSuperview()
+    }
   }
   
   func collectionView(
@@ -51,33 +52,41 @@ extension BaseCollectionView: UICollectionViewDelegateFlowLayout {
     layout collectionViewLayout: UICollectionViewLayout,
     sizeForItemAt indexPath: IndexPath
   ) -> CGSize {
-    let width = UIScreen.main.bounds.width - 40
-    return CGSize(width: width / 2, height: width / 2)
+    let viewWidth = UIScreen.main.bounds.width
+    let calculated = viewWidth - (layoutConfig.interItemSpacing + layoutConfig.insets.left * 2)
+    return CGSize(width: calculated / 2, height: calculated / 2 * layoutConfig.widthHeightRatio)
   }
   
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumInteritemSpacingForSectionAt section: Int
+  ) -> CGFloat {
+    return layoutConfig.interItemSpacing
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumLineSpacingForSectionAt section: Int
+  ) -> CGFloat {
+    return layoutConfig.interItemSpacing
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    insetForSectionAt section: Int
+  ) -> UIEdgeInsets {
+    return layoutConfig.insets
+  }
 }
-
 
 extension BaseCollectionView {
   struct LayoutConfig {
-    let interItemSpacing: CGFloat = 25
-    let insets: UIEdgeInsets = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+    let interItemSpacing: CGFloat = 10
+    let insets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
     let numberOfItems: UInt = 2
     let widthHeightRatio: CGFloat
-  }
-}
-
-
-
-extension UIViewController {
-  func addSearchBar(placeholder: String? = nil) {
-    let searchController = UISearchController()
-    searchController.searchBar.tintColor = Theme.Colors.Components.primary
-    searchController.obscuresBackgroundDuringPresentation = false
-    navigationItem.searchController = searchController
-    
-    if let placeholder = placeholder {
-      searchController.searchBar.placeholder = placeholder
-    }
   }
 }

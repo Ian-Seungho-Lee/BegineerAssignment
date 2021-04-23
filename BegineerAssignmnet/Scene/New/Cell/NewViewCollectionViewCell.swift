@@ -2,7 +2,7 @@
 //  NewViewCollectionViewCell.swift
 //  BegineerAssignmnet
 //
-//  Created by Ian on 2021/04/22.
+//  Created by Ian on 2021/04/23.
 //
 
 import UIKit
@@ -15,10 +15,13 @@ enum NewViewConstant {
 }
 
 final class NewViewCollectionViewCell: UICollectionViewCell {
-  private let titleLabel = TitleLabel()
-  private let subtitleLabel = ContentsLabel()
-  private let priceLabel = ContentsLabel()
-  private let imageView = UIImageView()
+  private let titleLabel = TitleLabel(font: .systemFont(ofSize: 16, weight: .medium))
+  private let subtitleLabel = ContentsLabel(font: .systemFont(ofSize: 12, weight: .light))
+  private let priceLabel = ContentsLabel(font: .systemFont(ofSize: 12, weight: .light))
+  private let imageView: UIImageView = {
+    
+    return $0
+  }(UIImageView(frame: .zero))
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -60,6 +63,7 @@ extension NewViewCollectionViewCell {
     priceLabel.snp.makeConstraints {
       $0.top.equalTo(subtitleLabel.snp.bottom).inset(NewViewConstant.vertical/2)
       $0.leading.trailing.equalToSuperview().inset(NewViewConstant.horizontal)
+      $0.bottom.equalToSuperview().inset(NewViewConstant.vertical/2)
     }
   }
 }

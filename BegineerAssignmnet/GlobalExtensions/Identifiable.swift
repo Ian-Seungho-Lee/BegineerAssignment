@@ -8,13 +8,13 @@
 import UIKit
 
 protocol Identifiable {
-    static var identifier: String { get }
+  static var identifier: String { get }
 }
 
 extension Identifiable {
-    static var identifier: String {
-        return String(describing: self)
-    }
+  static var identifier: String {
+    return String(describing: self)
+  }
 }
 
 extension UITableViewCell: Identifiable { }

@@ -10,6 +10,7 @@ import RxSwift
 
 final class NewInteractor: NewInteractorInterface {
   let networking: Networking
+  
   init(dependencies: NewDependencies) {
     self.networking = dependencies.networkingService
   }
