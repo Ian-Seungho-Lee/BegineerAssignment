@@ -9,6 +9,7 @@ import Foundation
 
 final class TabbarDependencies {
   let networkingService: Networking
+  
   init(networkingService: Networking) {
     self.networkingService = networkingService
   }

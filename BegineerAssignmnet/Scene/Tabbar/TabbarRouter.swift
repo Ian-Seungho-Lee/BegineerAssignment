@@ -14,7 +14,7 @@ enum TabbarChildRouter: Int {
 
 final class TabbarRouter: NavigationRouterType {
   let navigationController: UINavigationController
-  private let dependencies: TabbarDependencies
+  private let tabbarDependencies: TabbarDependencies
   private var tabbarController: UITabBarController?
   private var childRouters: [TabbarChildRouter: NavigationRouterType]
   
@@ -23,7 +23,7 @@ final class TabbarRouter: NavigationRouterType {
     dependencies: TabbarDependencies
   ) {
     self.navigationController = navigationController
-    self.dependencies = dependencies
+    self.tabbarDependencies = dependencies
     self.childRouters = [:]
   }
 }
@@ -43,7 +43,9 @@ extension TabbarRouter {
 
 extension TabbarRouter {
   private func setupNewViewRouter() {
-    let dependencies = NewDependencies()
+    let dependencies = NewDependencies(
+      networkingService: tabbarDependencies.networkingService
+    )
     let newNavigationController = configureNavigationControllerWithTabs(
       title: "New",
       image: UIImage()

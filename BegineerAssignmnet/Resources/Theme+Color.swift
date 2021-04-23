@@ -31,7 +31,7 @@ struct Theme {
     
     enum Components {
       static var primary: UIColor {
-        return .systemOrange
+        return .systemTeal
       }
       
       static var foreground: UIColor {
@@ -41,12 +41,11 @@ struct Theme {
     
     enum PrimaryColor {
       static var mainColor: UIColor {
-        return UIColor.orange.withAlphaComponent(0.6)
+        return UIColor.systemGray.withAlphaComponent(0.6)
       }
     }
   }
 }
-
 
 private extension UIColor {
   static func findProperColor(lightModeColor: UIColor, darkModeColor: UIColor) -> UIColor {

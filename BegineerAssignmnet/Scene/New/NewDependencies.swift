@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct NewDependencies {
-    
+struct NewDependencies: NetworkBase {
+  let networkingService: Networking
+  
+  init(networkingService: Networking) {
+    self.networkingService = networkingService
+  }
 }

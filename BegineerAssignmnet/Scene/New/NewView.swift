@@ -1,29 +1,68 @@
 //
-//  ViewController.swift
+//  NewView.swift
 //  BegineerAssignmnet
 //
-//  Created by Ian on 2021/04/21.
+//  Created by Ian on 2021/04/23.
 //
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SnapKit
+import RxAlamofire
 
 final class NewView: UIViewController {
-  private var bookListCollectionView: BaseCollectionView!
+  private var bookListView: BaseCollectionView!
+  private let disposeBag = DisposeBag()
+  private let presenter: NewPresenterInterface
   
+  init(presenter: NewPresenterInterface) {
+    self.presenter = presenter
+    
+    super.init(nibName: nil, bundle: nil)
+  }
   
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }
 
-// 여기랑 엮이는게 누구누군지랑.. 그런것들을 좀 알아보자 Action handling이 어떻게 일어나는가요?
 extension NewView {
   override func loadView() {
-    bookListCollectionView = BaseCollectionView()
-    view = bookListCollectionView
+    bookListView = BaseCollectionView(layoutConfig: .init(widthHeightRatio: 11/10))
+    view = bookListView
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupMainView()
+    bind()
+  }
+}
+
+extension NewView {
+  private func bind() {
+    let inputs = NewPresenter.Input(
+      viewWillAppear: rx.methodInvoked(#selector(UIViewController.viewWillAppear(_:))).map { _ in },
+      modelSelected: bookListView.collectionView.rx.modelSelected(Book.self).asObservable()
+    )
     
+    let outputs = presenter.transform(to: inputs)
+    
+    outputs.bookList
+      .drive(bookListView.collectionView.rx.items(
+              cellIdentifier: NewViewCollectionViewCell.identifier,
+              cellType: NewViewCollectionViewCell.self)
+      ) { index, item, cell in
+        cell.bind(to: item)
+      }
+      .disposed(by: disposeBag)
+  }
+}
+
+extension NewView {
+  private func setupMainView() {
+    navigationItem.title = "New Books"
+    navigationController?.navigationBar.prefersLargeTitles = true
   }
 }

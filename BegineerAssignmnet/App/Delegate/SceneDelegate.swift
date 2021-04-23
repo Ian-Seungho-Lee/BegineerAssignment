@@ -26,5 +26,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.rootViewController = appRouter?.navigationController
     appRouter?.start()
     window?.makeKeyAndVisible()
-  } 
+  }
 }

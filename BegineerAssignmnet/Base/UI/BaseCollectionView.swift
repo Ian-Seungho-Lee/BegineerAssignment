@@ -2,39 +2,91 @@
 //  BaseCollectionView.swift
 //  BegineerAssignmnet
 //
-//  Created by Ian on 2021/04/22.
+//  Created by Ian on 2021/04/23.
 //
 
 import UIKit
 import SnapKit
 
-// to be extended
-class BaseCollectionView: UIView {
-  let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-  let refreshControl = UIRefreshControl()
+///**only for NewBook View (Not base) **///
+final class BaseCollectionView: UIView {
+  private let layoutConfig: LayoutConfig
+  private(set) var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   
-  override init(frame: CGRect = .zero) {
+  init(layoutConfig: LayoutConfig, frame: CGRect = .zero) {
+    self.layoutConfig = layoutConfig
     super.init(frame: frame)
-    setupBase()
+    
+    setupMainView()
   }
   
   required init?(coder: NSCoder) {
+    self.layoutConfig = LayoutConfig(widthHeightRatio: 11/10)
+    
     super.init(coder: coder)
-    setupBase()
+    setupMainView()
   }
   
-  private func setupBase() {
-    backgroundColor = Theme.Colors.Background.primary
-    
+  private func setupMainView() {
     setupCollectionView()
   }
-  
+}
+
+extension BaseCollectionView: UICollectionViewDelegateFlowLayout {
   private func setupCollectionView() {
     addSubview(collectionView)
-  
-    collectionView.refreshControl = refreshControl
-    collectionView.snp.makeConstraints {
-      $0.edges.equalToSuperview()
+    collectionView.backgroundColor = Theme.Colors.Background.primary
+    collectionView.delegate = self
+    collectionView.register(
+      NewViewCollectionViewCell.self,
+      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
+    )
+    
+    collectionView.snp.makeConstraints { (make) in
+        make.edges.equalToSuperview()
     }
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    let viewWidth = UIScreen.main.bounds.width
+    let calculated = viewWidth - (layoutConfig.interItemSpacing + layoutConfig.insets.left * 2)
+    return CGSize(width: calculated / 2, height: calculated / 2 * layoutConfig.widthHeightRatio)
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumInteritemSpacingForSectionAt section: Int
+  ) -> CGFloat {
+    return layoutConfig.interItemSpacing
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumLineSpacingForSectionAt section: Int
+  ) -> CGFloat {
+    return layoutConfig.interItemSpacing
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    insetForSectionAt section: Int
+  ) -> UIEdgeInsets {
+    return layoutConfig.insets
+  }
+}
+
+extension BaseCollectionView {
+  struct LayoutConfig {
+    let interItemSpacing: CGFloat = 10
+    let insets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+    let numberOfItems: UInt = 2
+    let widthHeightRatio: CGFloat
   }
 }
