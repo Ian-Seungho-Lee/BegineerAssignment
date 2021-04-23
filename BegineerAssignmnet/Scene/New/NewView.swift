@@ -35,6 +35,7 @@ extension NewView {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupMainView()
     bind()
   }
 }
@@ -42,7 +43,8 @@ extension NewView {
 extension NewView {
   private func bind() {
     let inputs = NewPresenter.Input(
-      viewWillAppear: rx.methodInvoked(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
+      viewWillAppear: rx.methodInvoked(#selector(UIViewController.viewWillAppear(_:))).map { _ in },
+      modelSelected: bookListView.collectionView.rx.modelSelected(Book.self).asObservable()
     )
     
     let outputs = presenter.transform(to: inputs)
@@ -55,5 +57,12 @@ extension NewView {
         cell.bind(to: item)
       }
       .disposed(by: disposeBag)
+  }
+}
+
+extension NewView {
+  private func setupMainView() {
+    navigationItem.title = "New Books"
+    navigationController?.navigationBar.prefersLargeTitles = true
   }
 }

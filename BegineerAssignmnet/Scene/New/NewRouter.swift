@@ -35,4 +35,9 @@ extension NewRouter {
     let viewController = NewView(presenter: presenter)
     navigationController.show(viewController, sender: nil)
   }
+  
+  func showBookDetail(to about: Book) {
+    
+    
+  }
 }

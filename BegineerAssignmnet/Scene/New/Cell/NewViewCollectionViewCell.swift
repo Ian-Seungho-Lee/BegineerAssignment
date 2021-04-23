@@ -46,6 +46,7 @@ extension NewViewCollectionViewCell {
     
     imageView.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
+      $0.height.equalTo(150)
     }
     
     titleLabel.snp.makeConstraints {
@@ -74,3 +75,4 @@ extension NewViewCollectionViewCell {
     self.priceLabel.text = model.price
   }
 }
+

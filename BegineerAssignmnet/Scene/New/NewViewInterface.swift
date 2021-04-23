@@ -26,3 +26,6 @@ protocol NewRouterInterface: class {
 protocol NewViewInterface: class {
   
 }
+
+
+// router 이전 라우터는 

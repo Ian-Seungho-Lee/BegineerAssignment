@@ -23,6 +23,7 @@ final class NewPresenter: NewPresenterInterface {
   
   struct Input {
     let viewWillAppear: Observable<Void>
+    let modelSelected: Observable<Book>
   }
   
   struct Output {
@@ -38,6 +39,7 @@ extension NewPresenter {
       .flatMapLatest { _ -> Observable<[Book]> in
         return weakSelf?.interactor.fetchNewBookAPI() ?? .empty()
       }
+    
     
     return .init(bookList: bookList.asDriver(onErrorDriveWith: .empty()))
   }
