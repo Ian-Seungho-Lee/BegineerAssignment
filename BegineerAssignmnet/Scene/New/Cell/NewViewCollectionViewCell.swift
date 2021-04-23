@@ -6,22 +6,13 @@
 //
 
 import UIKit
-
-enum NewViewConstant {
-  static let linespacing = 10
-  static let itemspacing = 10
-  static let horizontal = 10
-  static let vertical = 10
-}
+import Kingfisher
 
 final class NewViewCollectionViewCell: UICollectionViewCell {
   private let titleLabel = TitleLabel(font: .systemFont(ofSize: 16, weight: .medium))
   private let subtitleLabel = ContentsLabel(font: .systemFont(ofSize: 12, weight: .light))
   private let priceLabel = ContentsLabel(font: .systemFont(ofSize: 12, weight: .light))
-  private let imageView: UIImageView = {
-    
-    return $0
-  }(UIImageView(frame: .zero))
+  private let imageView = UIImageView()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -31,6 +22,13 @@ final class NewViewCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     setupCollectionViewCell()
+  }
+  
+  enum NewViewConstant {
+    static let linespacing = 10
+    static let itemspacing = 10
+    static let horizontal = 10
+    static let vertical = 10
   }
 }
 
@@ -70,6 +68,7 @@ extension NewViewCollectionViewCell {
 
 extension NewViewCollectionViewCell {
   func bind(to model: Book) {
+    self.imageView.kf.setImage(with: URL(string: model.image))
     self.titleLabel.text = model.title
     self.subtitleLabel.text = model.subtitle
     self.priceLabel.text = model.price
