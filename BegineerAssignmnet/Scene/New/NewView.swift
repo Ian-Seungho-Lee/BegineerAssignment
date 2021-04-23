@@ -27,60 +27,51 @@ final class NewView: UIViewController {
 
 extension NewView {
   override func loadView() {
-    bookListView = BaseCollectionView()
+    bookListView = BaseCollectionView(layoutConfig: .init(widthHeightRatio: 29/36))
     view = bookListView
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupCollectionView()
     bind()
   }
 }
 
 extension NewView {
   private func bind() {
-    let viewDidLoad = PublishSubject<Void>()
-    let collectionView = bookListView.collectionView
-    
     let inputs = NewPresenter.Input(
-      viewDidLoad: viewDidLoad
+      viewWillAppear: rx.methodInvoked(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
     )
     
     let outputs = presenter.transform(to: inputs)
     
     outputs.bookList
-//      .do { print($0, #line) } // cell이 이상한 일이 뭐가 있는가 과연..??
-      .drive(onNext: {
-        print($0)
+      .drive(onNext: { _ in
+//        print($0, #line) // 이건 되고 아래건 안되는 이유는??
       })
       .disposed(by: disposeBag)
-    viewDidLoad.onNext(())
+        
+    Observable.of(["12,223", "123"])
+      .asDriver(onErrorDriveWith: .empty())
+      .drive(bookListView.collectionView.rx.items(
+        cellIdentifier: NewViewCollectionViewCell.identifier,
+        cellType: NewViewCollectionViewCell.self
+      )) { index, item, cell in
+        print(#function)
+        print(item)
+      }
+      .disposed(by: disposeBag)
   }
 }
 
 extension NewView: UICollectionViewDelegateFlowLayout {
-  private func setupCollectionView() {
-    let collectionView = bookListView.collectionView
-    
-    collectionView
-      .rx.setDelegate(self)
-      .disposed(by: disposeBag)
-    
-    collectionView.register(
-      NewViewCollectionViewCell.self,
-      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
-    )
-  }
-  
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
     sizeForItemAt indexPath: IndexPath
   ) -> CGSize {
-    let width = UIScreen.main.bounds.width
-
-    return CGSize(width: width/2, height: width/2)
+    let width = view.frame.width - 40
+    return CGSize(width: width / 2, height: width / 2)
   }
 }

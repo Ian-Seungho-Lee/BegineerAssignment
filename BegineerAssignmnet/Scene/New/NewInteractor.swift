@@ -15,9 +15,8 @@ final class NewInteractor: NewInteractorInterface {
   }
 }
 
-// Moya의 그 Response...그립네요..
 extension NewInteractor {
-  static func fetchNewBookListEndpoint() -> Endpoint<NewBookResponseType<Book>> {
+  func fetchNewBookListEndpoint() -> Endpoint<NewBookResponseType<Book>> {
     let url = URLBuilder()
       .set(path: "new")
       .build()!
@@ -26,9 +25,8 @@ extension NewInteractor {
   }
   
   func fetchNewBookAPI() -> Observable<[Book]> {
-    networking.requestObservable(NewInteractor.fetchNewBookListEndpoint())
-      .flatMapLatest { apiResponse -> Observable<[Book]> in
-        return .just(apiResponse.books)
-      }
+    return networking
+      .requestObservable(fetchNewBookListEndpoint())
+      .map { $0.books }
   }
 }

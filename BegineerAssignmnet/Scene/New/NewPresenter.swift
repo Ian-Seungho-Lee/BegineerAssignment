@@ -22,7 +22,7 @@ final class NewPresenter: NewPresenterInterface {
   }
   
   struct Input {
-    let viewDidLoad: Observable<Void>
+    let viewWillAppear: Observable<Void>
   }
   
   struct Output {
@@ -34,7 +34,7 @@ extension NewPresenter {
   func transform(to inputs: Input) -> Output {
     weak var weakSelf = self
     
-    let bookList = inputs.viewDidLoad
+    let bookList = inputs.viewWillAppear
       .flatMapLatest { _ -> Observable<[Book]> in
         return weakSelf?.interactor.fetchNewBookAPI() ?? .empty()
       }

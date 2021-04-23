@@ -7,34 +7,77 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class BaseCollectionView: UIView {
-  let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-  let refreshControl = UIRefreshControl()
-  
-  override init(frame: CGRect = .zero) {
+  private(set) var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+  private let layoutConfig: LayoutConfig
+
+  init(layoutConfig: LayoutConfig, frame: CGRect = .zero) {
+    self.layoutConfig = layoutConfig
     super.init(frame: frame)
-    setupCollectionView()
+    
+    setupMainView()
   }
   
   required init?(coder: NSCoder) {
+    self.layoutConfig = LayoutConfig(widthHeightRatio: 29/36)
+    
     super.init(coder: coder)
-    setupCollectionView()
+    setupMainView()
   }
   
-  private func setupCollectionView() {
+  private func setupMainView() {
     backgroundColor = Theme.Colors.Background.primary
-    
-    if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-      layout.scrollDirection = .vertical
-      layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-    }
     
     addSubview(collectionView)
     
-    collectionView.refreshControl = refreshControl
     collectionView.snp.makeConstraints {
       $0.edges.equalToSuperview()
+    }
+    
+    setupCollectionView()
+  }
+}
+
+extension BaseCollectionView: UICollectionViewDelegateFlowLayout {
+  func setupCollectionView() {
+    
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    let width = UIScreen.main.bounds.width - 40
+    return CGSize(width: width / 2, height: width / 2)
+  }
+  
+}
+
+
+extension BaseCollectionView {
+  struct LayoutConfig {
+    let interItemSpacing: CGFloat = 25
+    let insets: UIEdgeInsets = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+    let numberOfItems: UInt = 2
+    let widthHeightRatio: CGFloat
+  }
+}
+
+
+
+extension UIViewController {
+  func addSearchBar(placeholder: String? = nil) {
+    let searchController = UISearchController()
+    searchController.searchBar.tintColor = Theme.Colors.Components.primary
+    searchController.obscuresBackgroundDuringPresentation = false
+    navigationItem.searchController = searchController
+    
+    if let placeholder = placeholder {
+      searchController.searchBar.placeholder = placeholder
     }
   }
 }

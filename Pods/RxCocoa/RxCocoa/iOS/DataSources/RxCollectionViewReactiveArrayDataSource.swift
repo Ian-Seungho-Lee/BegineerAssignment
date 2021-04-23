@@ -55,7 +55,6 @@ class RxCollectionViewReactiveArrayDataSourceSequenceWrapper<Sequence: Swift.Seq
     }
 }
 
-
 // Please take a look at `DelegateProxyType.swift`
 class RxCollectionViewReactiveArrayDataSource<Element>
     : _RxCollectionViewReactiveArrayDataSource
