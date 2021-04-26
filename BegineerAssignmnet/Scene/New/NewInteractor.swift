@@ -17,7 +17,7 @@ final class NewInteractor: NewInteractorInterface {
 }
 
 extension NewInteractor {
-  func fetchNewBookListEndpoint() -> Endpoint<NewBookResponseType<Book>> {
+  private func fetchNewBookListEndpoint() -> Endpoint<NewBookResponseType<Book>> {
     let url = URLBuilder()
       .set(path: "new")
       .build()!
@@ -25,7 +25,7 @@ extension NewInteractor {
     return Endpoint(method: .get, url: url)
   }
   
-  func fetchNewBookAPI() -> Observable<[Book]> {
+  func fetchNewBookfromAPI() -> Observable<[Book]> {
     return networking
       .requestObservable(fetchNewBookListEndpoint())
       .map { $0.books }

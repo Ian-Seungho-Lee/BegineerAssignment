@@ -38,7 +38,7 @@ extension NewPresenter {
     
     let bookList = inputs.viewWillAppear
       .flatMapLatest { _ -> Observable<[Book]> in
-        return weakSelf?.interactor.fetchNewBookAPI() ?? .empty()
+        return weakSelf?.interactor.fetchNewBookfromAPI() ?? .empty()
       }
     
     let sendDetailView = inputs.modelSelected

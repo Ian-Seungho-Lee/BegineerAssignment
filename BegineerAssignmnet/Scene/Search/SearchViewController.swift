@@ -11,6 +11,7 @@ import RxCocoa
 import SnapKit
 
 final class SearchViewController: UIViewController, SearchViewInterface {
+  private let disposeBag = DisposeBag()
   private var bookListView: BaseCollectionView!
   let presenter: SearchPresenterInterface
   
@@ -38,6 +39,27 @@ extension SearchViewController {
     
     setupMainView()
     setupCollectionView()
+    
+    bind()
+  }
+}
+
+extension SearchViewController {
+  private func bind() {
+    let collectionView = bookListView.collectionView
+    let inputs = SearchPresenter.Input(
+      searchText: navigationItem.searchController!.searchBar.rx.text.orEmpty.asObservable(),
+      reachtoBottom: collectionView.rx.reachedBottom(offset: 100).asObservable()
+    )
+    let outputs = presenter.transform(inputs: inputs)
+    outputs.book
+      .drive(collectionView.rx.items(
+              cellIdentifier: NewViewCollectionViewCell.identifier,
+              cellType: NewViewCollectionViewCell.self)
+      ) { row, item, cell in
+        cell.bind(to: item)
+      }
+      .disposed(by: disposeBag)
   }
 }
 
@@ -51,10 +73,12 @@ extension SearchViewController {
     )
 
     collectionView.backgroundColor = Theme.Colors.Background.primary
+    collectionView.keyboardDismissMode = .onDrag
   }
   
   private func setupMainView() {
     navigationItem.title = "Search Books"
     navigationController?.navigationBar.prefersLargeTitles = true
+    addSearchBar(placeholder: "책을 검색해 보세요.")
   }
 }

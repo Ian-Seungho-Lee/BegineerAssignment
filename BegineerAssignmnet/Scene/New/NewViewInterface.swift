@@ -15,7 +15,7 @@ protocol NewViewInterface: class {
 protocol NewInteractorInterface: class {
   var networking: Networking { get }
 
-  func fetchNewBookAPI() -> Observable<[Book]>
+  func fetchNewBookfromAPI() -> Observable<[Book]>
 }
 
 protocol NewPresenterInterface: class {

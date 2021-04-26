@@ -16,14 +16,17 @@ protocol SearchInteractorInterface: class {
   // netwokring, cache Dependency
   var networking: Networking { get }
   
+  func searchBookbyName(bookname: String, page: Int) -> Single<[Book]>
+  func fetchPaginatedSearchResult(searchText: Observable<String>, loadNextPage: Observable<Void>) -> Observable<[Book]>
 }
 
 protocol SearchPresenterInterface: class {
   var interactor: SearchInteractorInterface { get }
   var router: SearchRouterInterface { get }
+  
+  func transform(inputs: SearchPresenter.Input) -> SearchPresenter.Output
 }
 
 protocol SearchRouterInterface: class {
   
 }
-

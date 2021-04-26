@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import struct RxCocoa.Driver
 
 final class SearchPresenter: SearchPresenterInterface {
   let interactor: SearchInteractorInterface
@@ -18,6 +19,29 @@ final class SearchPresenter: SearchPresenterInterface {
   ) {
     self.interactor = interactor
     self.router = router
+  }
+  
+  struct Input {
+    let searchText: Observable<String>
+    let reachtoBottom: Observable<Void>
+  }
+  
+  struct Output {
+    let book: Driver<[Book]>
+  }
+}
+
+extension SearchPresenter {
+  func transform(inputs: Input) -> Output {
+//    weak var weakSelf = self
+
+    let searchedItem = interactor.fetchPaginatedSearchResult(
+      searchText: inputs.searchText.debounce(.milliseconds(200), scheduler: MainScheduler.asyncInstance),
+      loadNextPage: inputs.reachtoBottom
+    )
+    .share()
+    
+    return .init(book: searchedItem.asDriver(onErrorDriveWith: .empty()))
   }
 }
 
