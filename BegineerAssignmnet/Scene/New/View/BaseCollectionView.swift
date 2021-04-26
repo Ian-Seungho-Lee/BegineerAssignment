@@ -42,8 +42,8 @@ extension BaseCollectionView: UICollectionViewDelegateFlowLayout {
       forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
     )
     
-    collectionView.snp.makeConstraints { (make) in
-        make.edges.equalToSuperview()
+    collectionView.snp.makeConstraints {
+        $0.edges.equalToSuperview()
     }
   }
   

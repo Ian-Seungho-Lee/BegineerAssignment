@@ -32,19 +32,26 @@ extension NewRouter {
       interactor: interactor
     )
     
-    let viewController = NewView(presenter: presenter)
+    let viewController = NewViewController(presenter: presenter)
     navigationController.show(viewController, sender: nil)
   }
   
-  func showBookDetail(to about: Book) {
-    let presenter = BookDetailPresenter(
-      interactor: BookDetailInteractor(),
-      router: BookDetailRouter()
+  func showBookDetail(to model: Book) {
+    let interactor = BookDetailInteractor()
+    let dependencies = BookDetailDependencies(
+      networkingService: self.dependencies.networkingService
     )
-    // router에는 이제 dependencies랑 네비게이션을 넣어줘야겟죠?
-    // 
-    
-    let bookDetailViewController = BookDetailView(
+    let router = BookDetailRouter(
+      navigationController: navigationController,
+      dependencies: dependencies
+    )
+    let presenter = BookDetailPresenter(
+      interactor: interactor,
+      router: router
+    )
+
+    let bookDetailViewController = BookDetailViewController(
+      book: model,
       presenter: presenter
     )
     

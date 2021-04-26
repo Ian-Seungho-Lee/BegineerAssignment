@@ -82,8 +82,8 @@ extension TabbarRouter {
         .map { $0.value.navigationController }
       return $0
     }(UITabBarController())
-    self.navigationController.isNavigationBarHidden = true
     self.tabbarController = tabbarController
+    self.navigationController.isNavigationBarHidden = true
     self.navigationController.setViewControllers([self.tabbarController!], animated: false)
   }
 }

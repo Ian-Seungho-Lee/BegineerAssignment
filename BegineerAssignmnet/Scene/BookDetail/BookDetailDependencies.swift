@@ -7,10 +7,10 @@
 
 import Foundation
 
-class BookDetailDependencies: NetworkBase {
+struct BookDetailDependencies: NetworkBase {
   let networkingService: Networking
   
-  init(dependencies: AppDependencies) {
-    self.networkingService = dependencies.networkingService
+  init(networkingService: Networking) {
+    self.networkingService = networkingService
   }  
 }

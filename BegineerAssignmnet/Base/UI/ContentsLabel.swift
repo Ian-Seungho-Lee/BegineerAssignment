@@ -15,5 +15,6 @@ class ContentsLabel: UILabel {
     self.init()
     self.textColor = color
     self.font = font
+    self.numberOfLines = 0
   }
 }
