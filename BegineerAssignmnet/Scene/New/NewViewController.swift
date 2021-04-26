@@ -35,6 +35,8 @@ extension NewViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
+    setupCollectionView()
+    
     bind()
   }
 }
@@ -64,6 +66,17 @@ extension NewViewController {
 }
 
 extension NewViewController {
+  private func setupCollectionView() {
+    let collectionView = bookListView.collectionView
+    
+    collectionView.register(
+      NewViewCollectionViewCell.self,
+      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
+    )
+
+    collectionView.backgroundColor = Theme.Colors.Background.primary
+  }
+  
   private func setupMainView() {
     navigationItem.title = "New Books"
     navigationController?.navigationBar.prefersLargeTitles = true

@@ -8,7 +8,13 @@
 import UIKit
 import RxSwift
 
+protocol NewViewInterface: class {
+  var presenter: NewPresenterInterface { get }
+}
+
 protocol NewInteractorInterface: class {
+  var networking: Networking { get }
+
   func fetchNewBookAPI() -> Observable<[Book]>
 }
 
@@ -23,6 +29,3 @@ protocol NewRouterInterface: class {
   func showBookDetail(to model: Book)
 }
 
-protocol NewViewInterface: class {
-  
-}

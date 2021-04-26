@@ -18,9 +18,6 @@ class TitleLabel: UILabel {
     self.numberOfLines = 0
   }
   
-  // 둘중에는 그러면 어디에 들어갈지 어떻게알앙 생성자는..??
-  // 상당히 똑똑하네...
-  
   convenience init(
     color: UIColor = Theme.Colors.Texts.primary,
     font: UIFont = .systemFont(ofSize: 20, weight: .medium),

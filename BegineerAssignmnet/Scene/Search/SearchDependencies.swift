@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct SearchDependencies {
-    
+struct SearchDependencies: NetworkBase {
+  let networkingService: Networking
+  
+  init(networkingService: Networking) {
+    self.networkingService = networkingService
+  }
 }

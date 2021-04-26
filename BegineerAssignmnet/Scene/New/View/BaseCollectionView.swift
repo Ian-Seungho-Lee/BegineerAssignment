@@ -35,12 +35,7 @@ final class BaseCollectionView: UIView {
 extension BaseCollectionView: UICollectionViewDelegateFlowLayout {
   private func setupCollectionView() {
     addSubview(collectionView)
-    collectionView.backgroundColor = Theme.Colors.Background.primary
     collectionView.delegate = self
-    collectionView.register(
-      NewViewCollectionViewCell.self,
-      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
-    )
     
     collectionView.snp.makeConstraints {
         $0.edges.equalToSuperview()
