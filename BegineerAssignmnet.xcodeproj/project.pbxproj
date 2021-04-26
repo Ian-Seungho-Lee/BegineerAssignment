@@ -15,6 +15,7 @@
 		3CCFB3B62632C7B2004044FA /* BookDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3B12632C7B2004044FA /* BookDetailRouter.swift */; };
 		3CCFB3B72632C7B2004044FA /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3B22632C7B2004044FA /* BookDetailViewController.swift */; };
 		3CCFB3B82632C7B2004044FA /* BookDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3B32632C7B2004044FA /* BookDetailInteractor.swift */; };
+		3CCFB3D52632CC23004044FA /* BookDetailDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3D42632CC23004044FA /* BookDetailDependencies.swift */; };
 		3CFB8B93263011AD00055C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8B92263011AD00055C49 /* AppDelegate.swift */; };
 		3CFB8B95263011AD00055C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8B94263011AD00055C49 /* SceneDelegate.swift */; };
 		3CFB8B9C263011AE00055C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB8B9B263011AE00055C49 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		3CCFB3B12632C7B2004044FA /* BookDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailRouter.swift; sourceTree = "<group>"; };
 		3CCFB3B22632C7B2004044FA /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		3CCFB3B32632C7B2004044FA /* BookDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailInteractor.swift; sourceTree = "<group>"; };
+		3CCFB3D42632CC23004044FA /* BookDetailDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailDependencies.swift; sourceTree = "<group>"; };
 		3CFB8B8F263011AD00055C49 /* BegineerAssignmnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BegineerAssignmnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFB8B92263011AD00055C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CFB8B94263011AD00055C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		3CCFB3AE2632C7A1004044FA /* BookDetail */ = {
 			isa = PBXGroup;
 			children = (
+				3CCFB3D42632CC23004044FA /* BookDetailDependencies.swift */,
 				3CCFB3AF2632C7B2004044FA /* BookDetailInterface.swift */,
 				3CCFB3B02632C7B2004044FA /* BookDetailPresenter.swift */,
 				3CCFB3B12632C7B2004044FA /* BookDetailRouter.swift */,
@@ -652,6 +655,7 @@
 				3CFB8C2126301F5400055C49 /* AppRouter.swift in Sources */,
 				3CFB8C732631111300055C49 /* Endpoint.swift in Sources */,
 				3CCFB3B62632C7B2004044FA /* BookDetailRouter.swift in Sources */,
+				3CCFB3D52632CC23004044FA /* BookDetailDependencies.swift in Sources */,
 				3CFB8CD426312DD300055C49 /* SearchRouter.swift in Sources */,
 				3CFB8C8B26311B5000055C49 /* URLBuilder.swift in Sources */,
 				3CFB8CD326312DD300055C49 /* SearchDependencies.swift in Sources */,

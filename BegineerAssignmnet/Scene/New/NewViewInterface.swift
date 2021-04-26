@@ -28,4 +28,5 @@ protocol NewViewInterface: class {
 }
 
 
-// router 이전 라우터는 
+// 이전 라우터는 라우팅 책임, 이전받는 라우터는 뷰를 띄우는 책임. 그럼 코디네이터랑 똑닮음요
+

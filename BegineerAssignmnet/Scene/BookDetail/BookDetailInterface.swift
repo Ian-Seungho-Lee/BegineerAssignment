@@ -13,7 +13,6 @@ protocol BookDetailPresenterInterface: class {
   var router: BookDetailRouterInterface { get }
 }
 
-
 protocol BookDetailInteractorInterface: class {
   
 }

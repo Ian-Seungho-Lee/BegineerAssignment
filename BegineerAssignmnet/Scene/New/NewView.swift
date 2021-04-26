@@ -9,12 +9,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
-import RxAlamofire
 
 final class NewView: UIViewController {
   private var bookListView: BaseCollectionView!
   private let disposeBag = DisposeBag()
   private let presenter: NewPresenterInterface
+  
+  // view의 interface를 정의 안햇구나??
   
   init(presenter: NewPresenterInterface) {
     self.presenter = presenter
