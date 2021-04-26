@@ -20,12 +20,9 @@ protocol NewPresenterInterface: class {
 }
 
 protocol NewRouterInterface: class {
-  
+  func showBookDetail(to model: Book)
 }
 
 protocol NewViewInterface: class {
   
 }
-
-
-// router 이전 라우터는 

@@ -9,6 +9,18 @@
 import Foundation
 import UIKit
 
-class BookDetailRouter: BookDetailRouterInterface {
+class BookDetailRouter: NavigationRouterType, BookDetailRouterInterface {
+  let navigationController: UINavigationController
+  private let dependencies: BookDetailDependencies
+  
+  init(
+    navigationController: UINavigationController,
+    dependencies: BookDetailDependencies
+  ) {
+    self.navigationController = navigationController
+    self.dependencies = dependencies
+  }
+  
+  func start() { }
     
 }

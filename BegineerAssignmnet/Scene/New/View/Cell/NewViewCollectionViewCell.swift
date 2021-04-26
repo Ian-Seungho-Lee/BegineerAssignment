@@ -9,7 +9,10 @@ import UIKit
 import Kingfisher
 
 final class NewViewCollectionViewCell: UICollectionViewCell {
-  private let titleLabel = TitleLabel(font: .systemFont(ofSize: 16, weight: .medium))
+  private let titleLabel = TitleLabel(
+    font: .systemFont(ofSize: 16, weight: .bold),
+    numberOflines: 1
+  )
   private let subtitleLabel = ContentsLabel(font: .systemFont(ofSize: 12, weight: .light))
   private let priceLabel = ContentsLabel(font: .systemFont(ofSize: 12, weight: .light))
   private let imageView = UIImageView()

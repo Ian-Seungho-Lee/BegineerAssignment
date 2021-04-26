@@ -32,12 +32,29 @@ extension NewRouter {
       interactor: interactor
     )
     
-    let viewController = NewView(presenter: presenter)
+    let viewController = NewViewController(presenter: presenter)
     navigationController.show(viewController, sender: nil)
   }
   
-  func showBookDetail(to about: Book) {
+  func showBookDetail(to model: Book) {
+    let interactor = BookDetailInteractor()
+    let dependencies = BookDetailDependencies(
+      networkingService: self.dependencies.networkingService
+    )
+    let router = BookDetailRouter(
+      navigationController: navigationController,
+      dependencies: dependencies
+    )
+    let presenter = BookDetailPresenter(
+      interactor: interactor,
+      router: router
+    )
+
+    let bookDetailViewController = BookDetailViewController(
+      book: model,
+      presenter: presenter
+    )
     
-    
+    navigationController.pushViewController(bookDetailViewController, animated: true)
   }
 }

@@ -25,9 +25,10 @@ final class NewPresenter: NewPresenterInterface {
     let viewWillAppear: Observable<Void>
     let modelSelected: Observable<Book>
   }
-  
+    
   struct Output {
     let bookList: Driver<[Book]>
+    let sendDetailView: Driver<Void>
   }
 }
 
@@ -40,7 +41,15 @@ extension NewPresenter {
         return weakSelf?.interactor.fetchNewBookAPI() ?? .empty()
       }
     
+    let sendDetailView = inputs.modelSelected
+      .flatMapLatest { book -> Observable<Void> in
+        weakSelf?.router.showBookDetail(to: book)
+        return .just(())
+      }
     
-    return .init(bookList: bookList.asDriver(onErrorDriveWith: .empty()))
+    return .init(
+      bookList: bookList.asDriver(onErrorDriveWith: .empty()),
+      sendDetailView: sendDetailView.asDriver(onErrorDriveWith: .empty())
+    )
   }
 }

@@ -9,9 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
-import RxAlamofire
 
-final class NewView: UIViewController {
+final class NewViewController: UIViewController {
   private var bookListView: BaseCollectionView!
   private let disposeBag = DisposeBag()
   private let presenter: NewPresenterInterface
@@ -27,7 +26,7 @@ final class NewView: UIViewController {
   }
 }
 
-extension NewView {
+extension NewViewController {
   override func loadView() {
     bookListView = BaseCollectionView(layoutConfig: .init(widthHeightRatio: 11/10))
     view = bookListView
@@ -40,7 +39,7 @@ extension NewView {
   }
 }
 
-extension NewView {
+extension NewViewController {
   private func bind() {
     let inputs = NewPresenter.Input(
       viewWillAppear: rx.methodInvoked(#selector(UIViewController.viewWillAppear(_:))).map { _ in },
@@ -57,10 +56,14 @@ extension NewView {
         cell.bind(to: item)
       }
       .disposed(by: disposeBag)
+    
+    outputs.sendDetailView
+      .drive()
+      .disposed(by: disposeBag)
   }
 }
 
-extension NewView {
+extension NewViewController {
   private func setupMainView() {
     navigationItem.title = "New Books"
     navigationController?.navigationBar.prefersLargeTitles = true
