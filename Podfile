@@ -13,6 +13,8 @@ target 'BegineerAssignmnet' do
   pod 'RxAlamofire'
   pod 'SnapKit'
   pod 'Kingfisher'
+  pod 'RealmSwift'
+  pod "RxRealm"
 
   target 'BegineerAssignmnetTests' do
     inherit! :search_paths
