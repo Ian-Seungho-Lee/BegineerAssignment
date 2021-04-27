@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3E890B2638015100AAA2E1 /* BookWithMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E890A2638015100AAA2E1 /* BookWithMemo.swift */; };
 		3CCFB33726329ACC004044FA /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB33626329ACC004044FA /* NewViewController.swift */; };
 		3CCFB37E2632AA86004044FA /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB37D2632AA86004044FA /* BaseCollectionViewCell.swift */; };
 		3CCFB3862632AC8E004044FA /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3852632AC8E004044FA /* BaseCollectionView.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C3E890A2638015100AAA2E1 /* BookWithMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWithMemo.swift; sourceTree = "<group>"; };
 		3CCFB33626329ACC004044FA /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		3CCFB37D2632AA86004044FA /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		3CCFB3852632AC8E004044FA /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C3E89092638014100AAA2E1 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3C3E890A2638015100AAA2E1 /* BookWithMemo.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		3CCFB3AE2632C7A1004044FA /* BookDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +403,7 @@
 		3CFB8D092631447900055C49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C3E89092638014100AAA2E1 /* Realm */,
 				3CFB8D0A2631449B00055C49 /* Books.swift */,
 			);
 			path = Model;
@@ -709,6 +720,7 @@
 				3CCFB3B62632C7B2004044FA /* BookDetailRouter.swift in Sources */,
 				3CCFB3D52632CC23004044FA /* BookDetailDependencies.swift in Sources */,
 				3CFB8CD426312DD300055C49 /* SearchRouter.swift in Sources */,
+				3C3E890B2638015100AAA2E1 /* BookWithMemo.swift in Sources */,
 				3CFB8C8B26311B5000055C49 /* URLBuilder.swift in Sources */,
 				3CFB8CD326312DD300055C49 /* SearchDependencies.swift in Sources */,
 				3CFB8C78263112D300055C49 /* NetworkingService.swift in Sources */,

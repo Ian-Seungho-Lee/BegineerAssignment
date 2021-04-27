@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import RealmSwift
 
 final class SearchViewController: UIViewController, SearchViewInterface {
   private let disposeBag = DisposeBag()
@@ -36,11 +37,24 @@ extension SearchViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+      
     setupMainView()
     setupCollectionView()
-    
+        
     bind()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    let realm = try! Realm()
+    let user = realm.object(ofType: BookWithMemoObject.self, forPrimaryKey: "가나다")
+    
+    let newBook = BookWithMemoObject(isbn: "가나다", memo: "음음")
+      
+    try! realm.write {
+      realm.add(newBook, update: .modified)
+    }    
   }
 }
 
