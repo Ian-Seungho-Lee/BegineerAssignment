@@ -15,8 +15,7 @@ protocol SearchViewInterface: class {
 protocol SearchInteractorInterface: class {
   // netwokring, cache Dependency
   var networking: Networking { get }
-  
-  func searchBookbyName(bookname: String, page: Int) -> Observable<[Book]>
+
   func fetchPaginatedSearchResult(searchText: Observable<String>, loadNextPage: Observable<Void>) -> Observable<[Book]>
 }
 

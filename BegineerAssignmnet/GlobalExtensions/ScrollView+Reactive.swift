@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: UIScrollView {
-  func reachedBottom(offset: CGFloat = 0.0) -> ControlEvent<Void> {
+  func reachedBottom(offset: CGFloat = 100.0) -> ControlEvent<Void> {
       let source = contentOffset.map { contentOffset in
           let visibleHeight = self.base.frame.height - self.base.contentInset.top - self.base.contentInset.bottom
           let y = contentOffset.y + self.base.contentInset.top

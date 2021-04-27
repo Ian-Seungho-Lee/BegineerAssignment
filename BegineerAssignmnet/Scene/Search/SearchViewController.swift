@@ -51,7 +51,7 @@ extension SearchViewController {
     
     let inputs = SearchPresenter.Input(
       searchText: searchText.distinctUntilChanged().filter { !$0.isEmpty },
-      reachtoBottom: collectionView.rx.reachedBottom(offset: 100).asObservable()
+      reachtoBottom: collectionView.rx.reachedBottom().asObservable()
     )
     let outputs = presenter.transform(inputs: inputs)
     

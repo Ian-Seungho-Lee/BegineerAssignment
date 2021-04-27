@@ -25,22 +25,18 @@ extension SearchInteractor {
     return Endpoint(method: .get, url: url)
   }
   
-  func searchBookbyName(bookname: String, page: Int) -> Observable<[Book]> {
+  private func searchBookbyName(bookname: String, page: Int) -> Observable<[Book]> {
     return networking.requestObservable(searchBookEndpoint(bookname, page))
       .map { $0.books }
   }
-  
+    
   func fetchPaginatedSearchResult(
     searchText: Observable<String>,
     loadNextPage: Observable<Void>
   ) -> Observable<[Book]> {
     let source = PaginationUISource(search: searchText, loadNextPage: loadNextPage)
-    return searchText
-      .flatMapLatest { [weak self] text -> Observable<[Book]> in
-        guard let self = self else { return .empty() }
-        
-        let sink = PaginationSink(ui: source, loadData: self.searchBookbyName)
-        return sink.elements
-      }
+    let sink = PaginationSink(ui: source, loadData: searchBookbyName)
+    
+    return sink.elements
   }
 }

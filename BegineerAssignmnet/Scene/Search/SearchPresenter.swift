@@ -40,7 +40,7 @@ extension SearchPresenter {
       loadNextPage: inputs.reachtoBottom
     )
     .share()
-    
+      
     return .init(book: searchedItem.asDriver(onErrorDriveWith: .empty()))
   }
 }
