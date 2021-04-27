@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 
 protocol Networking {
-  func request<Response>(_ endpoint: Endpoint<Response>, then completion: @escaping (Swift.Result<Response, Error>) -> Void)
   func requestObservable<Response>(_ endpoint: Endpoint<Response>) -> Observable<Response>
 }
 

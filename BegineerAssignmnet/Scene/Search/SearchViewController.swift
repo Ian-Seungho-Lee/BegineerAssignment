@@ -1,8 +1,8 @@
 //
-//  NewView.swift
+//  SearchView.swift
 //  BegineerAssignmnet
 //
-//  Created by Ian on 2021/04/23.
+//  Created by elesahich on 2021/04/22.
 //
 
 import UIKit
@@ -10,12 +10,14 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-final class NewViewController: UIViewController {
-  private var bookListView: BaseCollectionView!
+final class SearchViewController: UIViewController, SearchViewInterface {
   private let disposeBag = DisposeBag()
-  private let presenter: NewPresenterInterface
+  private var bookListView: BaseCollectionView!
+  let presenter: SearchPresenterInterface
   
-  init(presenter: NewPresenterInterface) {
+  init(
+    presenter: SearchPresenterInterface
+  ) {
     self.presenter = presenter
     
     super.init(nibName: nil, bundle: nil)
@@ -26,7 +28,7 @@ final class NewViewController: UIViewController {
   }
 }
 
-extension NewViewController {
+extension SearchViewController {
   override func loadView() {
     bookListView = BaseCollectionView(layoutConfig: .init(widthHeightRatio: 11/10))
     view = bookListView
@@ -34,6 +36,7 @@ extension NewViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     setupMainView()
     setupCollectionView()
     
@@ -41,31 +44,29 @@ extension NewViewController {
   }
 }
 
-extension NewViewController {
+extension SearchViewController {
   private func bind() {
-    let inputs = NewPresenter.Input(
-      viewWillAppear: rx.methodInvoked(#selector(UIViewController.viewWillAppear(_:))).map { _ in },
-      modelSelected: bookListView.collectionView.rx.modelSelected(Book.self).asObservable()
+    let collectionView = bookListView.collectionView
+    let searchText = navigationItem.searchController!.searchBar.rx.text.orEmpty
+    
+    let inputs = SearchPresenter.Input(
+      searchText: searchText.distinctUntilChanged().filter { !$0.isEmpty },
+      reachtoBottom: collectionView.rx.reachedBottom().asObservable()
     )
+    let outputs = presenter.transform(inputs: inputs)
     
-    let outputs = presenter.transform(to: inputs)
-    
-    outputs.bookList
-      .drive(bookListView.collectionView.rx.items(
+    outputs.book
+      .drive(collectionView.rx.items(
               cellIdentifier: BaseCollectionViewCell.identifier,
               cellType: BaseCollectionViewCell.self)
-      ) { index, item, cell in
+      ) { row, item, cell in
         cell.bind(to: item)
       }
-      .disposed(by: disposeBag)
-    
-    outputs.sendDetailView
-      .drive()
       .disposed(by: disposeBag)
   }
 }
 
-extension NewViewController {
+extension SearchViewController {
   private func setupCollectionView() {
     let collectionView = bookListView.collectionView
     
@@ -75,10 +76,12 @@ extension NewViewController {
     )
 
     collectionView.backgroundColor = Theme.Colors.Background.primary
+    collectionView.keyboardDismissMode = .onDrag
   }
   
   private func setupMainView() {
-    navigationItem.title = "New Books"
+    navigationItem.title = "Search Books"
     navigationController?.navigationBar.prefersLargeTitles = true
+    addSearchBar(placeholder: "책을 검색해 보세요.")
   }
 }
