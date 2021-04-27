@@ -26,7 +26,6 @@ extension PaginationSink {
     loadData: @escaping (_ bookName: String, _ page: Int) -> Observable<[T]>
   ) {
     let loadResults = BehaviorSubject<[Int: [T]]>(value: [:])
-    let bag = DisposeBag()
     
     let currentMaxPage = loadResults
       .map { $0.keys }

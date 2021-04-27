@@ -52,8 +52,8 @@ extension NewViewController {
     
     outputs.bookList
       .drive(bookListView.collectionView.rx.items(
-              cellIdentifier: NewViewCollectionViewCell.identifier,
-              cellType: NewViewCollectionViewCell.self)
+              cellIdentifier: BaseCollectionViewCell.identifier,
+              cellType: BaseCollectionViewCell.self)
       ) { index, item, cell in
         cell.bind(to: item)
       }
@@ -70,8 +70,8 @@ extension NewViewController {
     let collectionView = bookListView.collectionView
     
     collectionView.register(
-      NewViewCollectionViewCell.self,
-      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
+      BaseCollectionViewCell.self,
+      forCellWithReuseIdentifier: BaseCollectionViewCell.identifier
     )
 
     collectionView.backgroundColor = Theme.Colors.Background.primary

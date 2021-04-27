@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CCFB33726329ACC004044FA /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB33626329ACC004044FA /* NewViewController.swift */; };
-		3CCFB37E2632AA86004044FA /* NewViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB37D2632AA86004044FA /* NewViewCollectionViewCell.swift */; };
+		3CCFB37E2632AA86004044FA /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB37D2632AA86004044FA /* BaseCollectionViewCell.swift */; };
 		3CCFB3862632AC8E004044FA /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3852632AC8E004044FA /* BaseCollectionView.swift */; };
 		3CCFB3B42632C7B2004044FA /* BookDetailInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3AF2632C7B2004044FA /* BookDetailInterface.swift */; };
 		3CCFB3B52632C7B2004044FA /* BookDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB3B02632C7B2004044FA /* BookDetailPresenter.swift */; };
@@ -79,7 +79,7 @@
 
 /* Begin PBXFileReference section */
 		3CCFB33626329ACC004044FA /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
-		3CCFB37D2632AA86004044FA /* NewViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		3CCFB37D2632AA86004044FA /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		3CCFB3852632AC8E004044FA /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		3CCFB3AF2632C7B2004044FA /* BookDetailInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailInterface.swift; sourceTree = "<group>"; };
 		3CCFB3B02632C7B2004044FA /* BookDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailPresenter.swift; sourceTree = "<group>"; };
@@ -183,15 +183,6 @@
 				3CCFB3B32632C7B2004044FA /* BookDetailInteractor.swift */,
 			);
 			path = BookDetail;
-			sourceTree = "<group>";
-		};
-		3CCFB3DC263654C0004044FA /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3CCFB3852632AC8E004044FA /* BaseCollectionView.swift */,
-				3CFB8CFF263142D800055C49 /* Cell */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		3CCFB3DD263654F6004044FA /* View */ = {
@@ -335,7 +326,6 @@
 		3CFB8BD62630120A00055C49 /* New */ = {
 			isa = PBXGroup;
 			children = (
-				3CCFB3DC263654C0004044FA /* View */,
 				3CFB8CD826312DDC00055C49 /* NewDependencies.swift */,
 				3CFB8D4826314F1500055C49 /* NewViewInterface.swift */,
 				3CCFB33626329ACC004044FA /* NewViewController.swift */,
@@ -392,18 +382,12 @@
 		3CFB8CC926312D7A00055C49 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3CCFB3852632AC8E004044FA /* BaseCollectionView.swift */,
+				3CCFB37D2632AA86004044FA /* BaseCollectionViewCell.swift */,
 				3CFB8D1C2631460900055C49 /* TitleLabel.swift */,
 				3CFB8D272631485B00055C49 /* ContentsLabel.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		3CFB8CFF263142D800055C49 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				3CCFB37D2632AA86004044FA /* NewViewCollectionViewCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		3CFB8D092631447900055C49 /* Model */ = {
@@ -710,7 +694,7 @@
 				3CCFB3B82632C7B2004044FA /* BookDetailInteractor.swift in Sources */,
 				3CFB8B95263011AD00055C49 /* SceneDelegate.swift in Sources */,
 				3CFB8CED2631307200055C49 /* APIRouter.swift in Sources */,
-				3CCFB37E2632AA86004044FA /* NewViewCollectionViewCell.swift in Sources */,
+				3CCFB37E2632AA86004044FA /* BaseCollectionViewCell.swift in Sources */,
 				3CFB8D3F26314EAF00055C49 /* NewPresenter.swift in Sources */,
 				3CFB8D4926314F1500055C49 /* NewViewInterface.swift in Sources */,
 				3CFB8CD226312DD300055C49 /* SearchViewController.swift in Sources */,

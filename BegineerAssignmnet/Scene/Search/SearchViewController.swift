@@ -57,8 +57,8 @@ extension SearchViewController {
     
     outputs.book
       .drive(collectionView.rx.items(
-              cellIdentifier: NewViewCollectionViewCell.identifier,
-              cellType: NewViewCollectionViewCell.self)
+              cellIdentifier: BaseCollectionViewCell.identifier,
+              cellType: BaseCollectionViewCell.self)
       ) { row, item, cell in
         cell.bind(to: item)
       }
@@ -71,8 +71,8 @@ extension SearchViewController {
     let collectionView = bookListView.collectionView
     
     collectionView.register(
-      NewViewCollectionViewCell.self,
-      forCellWithReuseIdentifier: NewViewCollectionViewCell.identifier
+      BaseCollectionViewCell.self,
+      forCellWithReuseIdentifier: BaseCollectionViewCell.identifier
     )
 
     collectionView.backgroundColor = Theme.Colors.Background.primary

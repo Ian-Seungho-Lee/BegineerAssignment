@@ -33,8 +33,6 @@ final class SearchPresenter: SearchPresenterInterface {
 
 extension SearchPresenter {
   func transform(inputs: Input) -> Output {
-    weak var weakSelf = self
-
     let searchedItem = interactor.fetchPaginatedSearchResult(
       searchText: inputs.searchText.debounce(.milliseconds(300), scheduler: MainScheduler.asyncInstance),
       loadNextPage: inputs.reachtoBottom
