@@ -47,11 +47,14 @@ extension SearchViewController {
 extension SearchViewController {
   private func bind() {
     let collectionView = bookListView.collectionView
+    let searchText = navigationItem.searchController!.searchBar.rx.text.orEmpty
+    
     let inputs = SearchPresenter.Input(
-      searchText: navigationItem.searchController!.searchBar.rx.text.orEmpty.asObservable(),
+      searchText: searchText.distinctUntilChanged().filter { !$0.isEmpty },
       reachtoBottom: collectionView.rx.reachedBottom(offset: 100).asObservable()
     )
     let outputs = presenter.transform(inputs: inputs)
+    
     outputs.book
       .drive(collectionView.rx.items(
               cellIdentifier: NewViewCollectionViewCell.identifier,

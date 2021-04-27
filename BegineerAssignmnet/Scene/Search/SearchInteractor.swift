@@ -21,16 +21,13 @@ extension SearchInteractor {
     let url = URLBuilder()
       .set(path: "search/\(bookname)/\(page)")
       .build()!
-    
-    print(url, #line, "여기여기")
-    
+        
     return Endpoint(method: .get, url: url)
   }
   
-  func searchBookbyName(bookname: String, page: Int) -> Single<[Book]> {
+  func searchBookbyName(bookname: String, page: Int) -> Observable<[Book]> {
     return networking.requestObservable(searchBookEndpoint(bookname, page))
       .map { $0.books }
-      .asSingle()
   }
   
   func fetchPaginatedSearchResult(

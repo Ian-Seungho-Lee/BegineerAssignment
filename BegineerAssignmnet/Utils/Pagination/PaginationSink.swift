@@ -23,9 +23,10 @@ struct PaginationSink<T> {
 extension PaginationSink {
   init(
     ui: PaginationUISource,
-    loadData: @escaping (_ bookName: String, _ page: Int) -> Single<[T]>
+    loadData: @escaping (_ bookName: String, _ page: Int) -> Observable<[T]>
   ) {
     let loadResults = BehaviorSubject<[Int: [T]]>(value: [:])
+    let bag = DisposeBag()
     
     let currentMaxPage = loadResults
       .map { $0.keys }
@@ -49,8 +50,7 @@ extension PaginationSink {
         .materialize()
         .filter { $0.isCompleted == false }
       }
-      .share()
-    
+        
     _ = page
       .compactMap { $0.element }
       .withLatestFrom(loadResults) { (pages: $1, newPage: $0) }

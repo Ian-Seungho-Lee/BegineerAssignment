@@ -37,6 +37,6 @@ extension NetworkingService: Networking {
     .map { request, data -> Response in
       return try endpoint.decode(data)
     }
-    .debug()
+    .share()
   }
 }
