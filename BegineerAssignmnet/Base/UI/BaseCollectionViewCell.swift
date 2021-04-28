@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class BaseCollectionViewCell: UICollectionViewCell {
+class BaseCollectionViewCell: UICollectionViewCell {
   private let titleLabel = TitleLabel(
     font: .systemFont(ofSize: 16, weight: .bold),
     numberOflines: 1

@@ -51,7 +51,8 @@ extension SearchViewController {
     
     let inputs = SearchPresenter.Input(
       searchText: searchText.distinctUntilChanged().filter { !$0.isEmpty },
-      reachtoBottom: collectionView.rx.reachedBottom().asObservable()
+      reachtoBottom: collectionView.rx.reachedBottom().asObservable(),
+      modelSelected: collectionView.rx.modelSelected(Book.self).asObservable()
     )
     let outputs = presenter.transform(to: inputs)
     
@@ -62,6 +63,10 @@ extension SearchViewController {
       ) { row, item, cell in
         cell.bind(to: item)
       }
+      .disposed(by: disposeBag)
+    
+    outputs.modelSelected
+      .drive()
       .disposed(by: disposeBag)
   }
 }

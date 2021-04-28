@@ -59,7 +59,10 @@ extension TabbarRouter {
   }
   
   private func setupSearchViewRouter() {
-    let dependencies = SearchDependencies(networkingService: tabbarDependencies.networkingService)
+    let dependencies = SearchDependencies(
+      networkingService: tabbarDependencies.networkingService,
+      cacheWrapper: CacheWrapper(base: Cache())
+    )
     let searchNavigationController = configureNavigationControllerWithTabs(
       title: "Search",
       image: UIImage()

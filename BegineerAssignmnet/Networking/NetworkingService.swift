@@ -25,7 +25,6 @@ final class NetworkingService {
 
 extension NetworkingService: Networking {
   func requestObservable<Response>(_ endpoint: Endpoint<Response>) -> Observable<Response> {
-    
     return sessionManager.rx.request(
       endpoint.method,
       endpoint.url,

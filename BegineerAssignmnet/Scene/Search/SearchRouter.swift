@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class SearchRouter: NavigationRouterType, SearchRouterInterface {
   let navigationController: UINavigationController
@@ -27,9 +28,9 @@ final class SearchRouter: NavigationRouterType, SearchRouterInterface {
 extension SearchRouter {
   private func showSearchView() {
     let interactor = SearchInteractor(
-      networking: dependencies.networkingService
+      networking: dependencies.networkingService,
+      cacheWrapper: dependencies.cacheWrapper
     )
-    
     let presenter = SearchPresenter(
       interactor: interactor,
       router: self
@@ -39,5 +40,28 @@ extension SearchRouter {
       presenter: presenter
     )
     navigationController.show(searchViewController, sender: nil)
+  }
+  
+  func showBookDetail(to model: Book) {
+    let dependencies = BookDetailDependencies(
+      networkingService: self.dependencies.networkingService,
+      realmInstance: try! Realm()
+    )
+    let interactor = BookDetailInteractor(dependencies: dependencies)
+    let router = BookDetailRouter(
+      navigationController: navigationController,
+      dependencies: dependencies
+    )
+    let presenter = BookDetailPresenter(
+      interactor: interactor,
+      router: router
+    )
+    
+    let bookDetailViewController = BookDetailViewController(
+      book: model,
+      presenter: presenter
+    )
+    bookDetailViewController.hidesBottomBarWhenPushed = true
+    navigationController.pushViewController(bookDetailViewController, animated: true)
   }
 }

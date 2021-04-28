@@ -13,7 +13,7 @@ protocol SearchViewInterface: class {
 }
 
 protocol SearchInteractorInterface: class {
-  // netwokring, cache Dependency
+  var cacheWrapper: CacheWrapper<String, [Book]> { get }
   var networking: Networking { get }
 
   func fetchPaginatedSearchResult(searchText: Observable<String>, loadNextPage: Observable<Void>) -> Observable<[Book]>
@@ -27,5 +27,5 @@ protocol SearchPresenterInterface: class {
 }
 
 protocol SearchRouterInterface: class {
-  
+  func showBookDetail(to model: Book) 
 }
