@@ -62,8 +62,8 @@ extension BookDetailViewController {
     let outputs = presenter.transform(to: inputs)
     
     outputs.memoObject
-      .drive(onNext: { [weak self] object in
-        textView.text = object?.memo
+      .drive(onNext: { [weak textView] object in
+        textView?.text = object?.memo
       })
       .disposed(by: disposeBag)
     
