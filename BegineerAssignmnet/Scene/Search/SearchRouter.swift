@@ -27,9 +27,9 @@ final class SearchRouter: NavigationRouterType, SearchRouterInterface {
 extension SearchRouter {
   private func showSearchView() {
     let interactor = SearchInteractor(
-      networking: dependencies.networkingService
+      networking: dependencies.networkingService,
+      cacheWrapper: dependencies.cacheWrapper
     )
-    
     let presenter = SearchPresenter(
       interactor: interactor,
       router: self

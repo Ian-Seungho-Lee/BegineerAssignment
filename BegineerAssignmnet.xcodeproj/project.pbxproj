@@ -196,6 +196,7 @@
 				3CCFB3B02632C7B2004044FA /* BookDetailPresenter.swift */,
 				3CCFB3B12632C7B2004044FA /* BookDetailRouter.swift */,
 				3CCFB3B22632C7B2004044FA /* BookDetailViewController.swift */,
+				3C3E89152638FA9D00AAA2E1 /* BookDetailInteractor.swift */,
 			);
 			path = BookDetail;
 			sourceTree = "<group>";
@@ -372,7 +373,6 @@
 				3CFB8CCF26312DD300055C49 /* SearchViewController.swift */,
 				3CCFB3EF2636955D004044FA /* SearchInteractor.swift */,
 				3CCFB3F426369566004044FA /* SearchPresenter.swift */,
-				3C3E89152638FA9D00AAA2E1 /* BookDetailInteractor.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";

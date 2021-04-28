@@ -10,9 +10,14 @@ import RxSwift
 
 final class SearchInteractor: SearchInteractorInterface {
   let networking: Networking
+  let cacheWrapper: CacheWrapper<String, [Book]>
   
-  init(networking: Networking) {
+  init(
+    networking: Networking,
+    cacheWrapper: CacheWrapper<String, [Book]>
+  ) {
     self.networking = networking
+    self.cacheWrapper = cacheWrapper
   }
 }
 
@@ -26,7 +31,12 @@ extension SearchInteractor {
   }
   
   private func searchBookbyName(bookname: String, page: Int) -> Observable<[Book]> {
+    if let cache = cacheWrapper[bookname + String(page)] {
+      return .just(cache)
+    }
+    
     return networking.requestObservable(searchBookEndpoint(bookname, page))
+      .do { self.cacheWrapper[bookname + String(page)] = $0.books }
       .map { $0.books }
   }
     
