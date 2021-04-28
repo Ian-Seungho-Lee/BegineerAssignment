@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BookDetailRouter: NavigationRouterType, BookDetailRouterInterface {
+final class BookDetailRouter: NavigationRouterType, BookDetailRouterInterface {
   let navigationController: UINavigationController
   private let dependencies: BookDetailDependencies
   
@@ -22,5 +22,7 @@ class BookDetailRouter: NavigationRouterType, BookDetailRouterInterface {
   }
   
   func start() { }
-    
+  func popViewController() {
+    navigationController.popViewController(animated: true)
+  }
 }

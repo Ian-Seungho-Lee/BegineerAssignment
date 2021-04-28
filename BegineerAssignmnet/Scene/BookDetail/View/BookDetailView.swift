@@ -15,7 +15,7 @@ final class BookDetailView: UIView {
   private let contentsView = UIView()
   
   private let bookImageView: UIImageView = {
-    $0.contentMode = .scaleAspectFill
+    $0.contentMode = .scaleAspectFit
     return $0
   }(UIImageView())
   private let titleLabel = TitleLabel(
@@ -28,7 +28,7 @@ final class BookDetailView: UIView {
   )
   private let isbnLabel = ContentsLabel(font: .systemFont(ofSize: 16, weight: .light))
   private let priceLabel = ContentsLabel(font: .systemFont(ofSize: 16, weight: .light))
-  private let textView: UITextView = {
+  private(set) var textView: UITextView = {
     $0.layer.borderWidth = 0.5
     $0.layer.borderColor = UIColor.systemGray.cgColor
     $0.layer.cornerRadius = 5
@@ -82,7 +82,7 @@ extension BookDetailView {
     // enum으로 변경좀~!
     bookImageView.snp.makeConstraints {
       $0.top.equalToSuperview().inset(20)
-      $0.leading.equalToSuperview().offset(20)
+      $0.leading.equalToSuperview().inset(20)
       $0.width.equalTo(170)
     }
     

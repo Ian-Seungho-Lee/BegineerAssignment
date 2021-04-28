@@ -32,7 +32,7 @@ final class SearchPresenter: SearchPresenterInterface {
 }
 
 extension SearchPresenter {
-  func transform(inputs: Input) -> Output {
+  func transform(to inputs: Input) -> Output {
     let searchedItem = interactor.fetchPaginatedSearchResult(
       searchText: inputs.searchText.debounce(.milliseconds(300), scheduler: MainScheduler.asyncInstance),
       loadNextPage: inputs.reachtoBottom

@@ -23,7 +23,7 @@ protocol SearchPresenterInterface: class {
   var interactor: SearchInteractorInterface { get }
   var router: SearchRouterInterface { get }
   
-  func transform(inputs: SearchPresenter.Input) -> SearchPresenter.Output
+  func transform(to inputs: SearchPresenter.Input) -> SearchPresenter.Output
 }
 
 protocol SearchRouterInterface: class {

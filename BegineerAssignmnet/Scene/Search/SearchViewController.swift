@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SnapKit
 import RealmSwift
 
 final class SearchViewController: UIViewController, SearchViewInterface {
@@ -43,19 +42,6 @@ extension SearchViewController {
         
     bind()
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    let realm = try! Realm()
-    let user = realm.object(ofType: BookWithMemoObject.self, forPrimaryKey: "가나다")
-    
-    let newBook = BookWithMemoObject(isbn: "가나다", memo: "음음")
-      
-    try! realm.write {
-      realm.add(newBook, update: .modified)
-    }    
-  }
 }
 
 extension SearchViewController {
@@ -67,7 +53,7 @@ extension SearchViewController {
       searchText: searchText.distinctUntilChanged().filter { !$0.isEmpty },
       reachtoBottom: collectionView.rx.reachedBottom().asObservable()
     )
-    let outputs = presenter.transform(inputs: inputs)
+    let outputs = presenter.transform(to: inputs)
     
     outputs.book
       .drive(collectionView.rx.items(
