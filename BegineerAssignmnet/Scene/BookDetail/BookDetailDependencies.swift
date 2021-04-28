@@ -6,11 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct BookDetailDependencies: NetworkBase {
   let networkingService: Networking
+  let realm: Realm
   
-  init(networkingService: Networking) {
+  init(
+    networkingService: Networking,
+    realmInstance: Realm
+  ) {
     self.networkingService = networkingService
+    self.realm = realmInstance
   }  
 }

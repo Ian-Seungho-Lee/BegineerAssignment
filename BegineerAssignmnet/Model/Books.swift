@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Book: Decodable {
+class Book: Decodable {
   let title: String
   let subtitle: String
   let isbn13: String

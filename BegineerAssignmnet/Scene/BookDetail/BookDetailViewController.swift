@@ -47,7 +47,29 @@ extension BookDetailViewController {
     super.viewDidLoad()
     
     setupNavigationItem()
+    bind()
+  }
+}
+
+extension BookDetailViewController {
+  private func bind() {
+    let textView = bookDetailView.textView
+    let inputs = BookDetailPresenter.Input(
+      book: book,
+      viewDidLoad: rx.methodInvoked(#selector(UIViewController.viewWillAppear(_:))).map { _ in },
+      saveAction: rightButton.rx.tap.withLatestFrom(textView.rx.text.orEmpty).asObservable()
+    )
+    let outputs = presenter.transform(to: inputs)
     
+    outputs.memoObject
+      .drive(onNext: { [weak textView] object in
+        textView?.text = object?.memo
+      })
+      .disposed(by: disposeBag)
+    
+    outputs.saveAction
+      .drive()
+      .disposed(by: disposeBag)
   }
 }
 

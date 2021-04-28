@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SnapKit
+import RealmSwift
 
 final class SearchViewController: UIViewController, SearchViewInterface {
   private let disposeBag = DisposeBag()
@@ -36,10 +36,10 @@ extension SearchViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+      
     setupMainView()
     setupCollectionView()
-    
+        
     bind()
   }
 }
@@ -53,7 +53,7 @@ extension SearchViewController {
       searchText: searchText.distinctUntilChanged().filter { !$0.isEmpty },
       reachtoBottom: collectionView.rx.reachedBottom().asObservable()
     )
-    let outputs = presenter.transform(inputs: inputs)
+    let outputs = presenter.transform(to: inputs)
     
     outputs.book
       .drive(collectionView.rx.items(

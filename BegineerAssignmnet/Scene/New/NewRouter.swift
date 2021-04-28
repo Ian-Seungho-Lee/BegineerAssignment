@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class NewRouter: NavigationRouterType, NewRouterInterface {
   let navigationController: UINavigationController
@@ -37,10 +38,11 @@ extension NewRouter {
   }
   
   func showBookDetail(to model: Book) {
-    let interactor = BookDetailInteractor()
     let dependencies = BookDetailDependencies(
-      networkingService: self.dependencies.networkingService
+      networkingService: self.dependencies.networkingService,
+      realmInstance: try! Realm()
     )
+    let interactor = BookDetailInteractor(dependencies: dependencies)
     let router = BookDetailRouter(
       navigationController: navigationController,
       dependencies: dependencies
@@ -49,12 +51,12 @@ extension NewRouter {
       interactor: interactor,
       router: router
     )
-
+    
     let bookDetailViewController = BookDetailViewController(
       book: model,
       presenter: presenter
     )
-    
+    bookDetailViewController.hidesBottomBarWhenPushed = true
     navigationController.pushViewController(bookDetailViewController, animated: true)
   }
 }
