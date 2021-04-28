@@ -6,10 +6,10 @@
 
 
 
-**`나의 책장`** 앱은 VIPER패턴을 이용한 첫번째 샘플 앱입니다. 주로 MVVM-C패턴을 사용해왔는데, VIPER 패턴에 맞춰서 MVVM-C를 확장하여 앱 구조를 구성했습니다. (Interactor)
+**`나의 책장`** 앱은 VIPER패턴을 이용한 첫번째 샘플 앱입니다. <br> VIPER 패턴에 맞춰서 MVVM-C를 확장하여 앱 구조를 구성했습니다. (Interactor)
 
 ## 구조 소개
-VIPER 패턴의 각 컴포넌트는 단일 책임을 가집니다. (VIPER의 설명을 링크)
+VIPER 패턴의 각 컴포넌트는 단일 책임을 가집니다. [VIPER?](https://www.raywenderlich.com/8440907-getting-started-with-the-viper-architecture-pattern) <br>
 앱에서 고안한 구조를 그림으로 표현하면 다음과 같습니다. <br><br>
 ![Group 6 (1)](https://user-images.githubusercontent.com/82797883/116359502-d3814a00-a839-11eb-997f-534de3cb8211.png)
 
@@ -29,5 +29,6 @@ VIPER 패턴의 각 컴포넌트는 단일 책임을 가집니다. (VIPER의 설
 - Kingfisher
 
 ## etc
-- PR, issue 환영입니다.
+- PR, issue 환영합니다!
 - 궁금한 점이 있으시면 elesahich@gmail.com으로 메일 주세요!
+
