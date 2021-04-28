@@ -9,6 +9,7 @@ import Foundation
 
 struct AppDependencies: NetworkBase {
   let networkingService: Networking
+  
   init(networkingService: Networking) {
     self.networkingService = networkingService
   }

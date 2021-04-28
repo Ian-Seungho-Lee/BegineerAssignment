@@ -24,6 +24,9 @@
 		3CCFB40526369E7E004044FA /* SearchBookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB40426369E7E004044FA /* SearchBookResponse.swift */; };
 		3CCFB42C2636A177004044FA /* ScrollView+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB42B2636A177004044FA /* ScrollView+Reactive.swift */; };
 		3CCFB4352636A207004044FA /* PaginationSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFB4342636A207004044FA /* PaginationSink.swift */; };
+		3CDDE57F263927FD00764FA9 /* CacheWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE57C263927FC00764FA9 /* CacheWrapper.swift */; };
+		3CDDE580263927FD00764FA9 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE57D263927FD00764FA9 /* Cache.swift */; };
+		3CDDE581263927FD00764FA9 /* Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE57E263927FD00764FA9 /* Caching.swift */; };
 		3CFB8B93263011AD00055C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8B92263011AD00055C49 /* AppDelegate.swift */; };
 		3CFB8B95263011AD00055C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB8B94263011AD00055C49 /* SceneDelegate.swift */; };
 		3CFB8B9C263011AE00055C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB8B9B263011AE00055C49 /* Assets.xcassets */; };
@@ -96,6 +99,9 @@
 		3CCFB40426369E7E004044FA /* SearchBookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResponse.swift; sourceTree = "<group>"; };
 		3CCFB42B2636A177004044FA /* ScrollView+Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Reactive.swift"; sourceTree = "<group>"; };
 		3CCFB4342636A207004044FA /* PaginationSink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationSink.swift; sourceTree = "<group>"; };
+		3CDDE57C263927FC00764FA9 /* CacheWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheWrapper.swift; sourceTree = "<group>"; };
+		3CDDE57D263927FD00764FA9 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		3CDDE57E263927FD00764FA9 /* Caching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Caching.swift; sourceTree = "<group>"; };
 		3CFB8B8F263011AD00055C49 /* BegineerAssignmnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BegineerAssignmnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFB8B92263011AD00055C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CFB8B94263011AD00055C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +228,9 @@
 		3CCFB43C2636A23D004044FA /* Caches */ = {
 			isa = PBXGroup;
 			children = (
+				3CDDE57D263927FD00764FA9 /* Cache.swift */,
+				3CDDE57C263927FC00764FA9 /* CacheWrapper.swift */,
+				3CDDE57E263927FD00764FA9 /* Caching.swift */,
 			);
 			path = Caches;
 			sourceTree = "<group>";
@@ -700,6 +709,7 @@
 				3CCFB40526369E7E004044FA /* SearchBookResponse.swift in Sources */,
 				3CCFB4352636A207004044FA /* PaginationSink.swift in Sources */,
 				3CFB8B93263011AD00055C49 /* AppDelegate.swift in Sources */,
+				3CDDE57F263927FD00764FA9 /* CacheWrapper.swift in Sources */,
 				3CFB8D282631485B00055C49 /* ContentsLabel.swift in Sources */,
 				3CCFB3B52632C7B2004044FA /* BookDetailPresenter.swift in Sources */,
 				3CFB8B95263011AD00055C49 /* SceneDelegate.swift in Sources */,
@@ -707,6 +717,8 @@
 				3CCFB37E2632AA86004044FA /* BaseCollectionViewCell.swift in Sources */,
 				3CFB8D3F26314EAF00055C49 /* NewPresenter.swift in Sources */,
 				3CFB8D4926314F1500055C49 /* NewViewInterface.swift in Sources */,
+				3CDDE580263927FD00764FA9 /* Cache.swift in Sources */,
+				3CDDE581263927FD00764FA9 /* Caching.swift in Sources */,
 				3CFB8CD226312DD300055C49 /* SearchViewController.swift in Sources */,
 				3CCFB42C2636A177004044FA /* ScrollView+Reactive.swift in Sources */,
 				3CFB8D2E263149C200055C49 /* Identifiable.swift in Sources */,

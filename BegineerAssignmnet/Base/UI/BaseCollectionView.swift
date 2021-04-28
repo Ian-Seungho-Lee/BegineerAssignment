@@ -8,8 +8,7 @@
 import UIKit
 import SnapKit
 
-///**only for NewBook View (Not base) **///
-final class BaseCollectionView: UIView {
+class BaseCollectionView: UIView {
   private let layoutConfig: LayoutConfig
   private(set) var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   
