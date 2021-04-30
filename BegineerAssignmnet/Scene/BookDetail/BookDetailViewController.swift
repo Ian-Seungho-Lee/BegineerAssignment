@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import ChannelIO
 
 final class BookDetailViewController: UIViewController {
   private var bookDetailView: BookDetailView!
@@ -45,6 +46,7 @@ extension BookDetailViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     
     setupNavigationItem()
     bind()

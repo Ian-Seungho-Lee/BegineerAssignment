@@ -14,7 +14,9 @@ target 'BegineerAssignmnet' do
   pod 'SnapKit'
   pod 'Kingfisher'
   pod 'RealmSwift'
-  pod "RxRealm"
+  pod 'RxRealm'
+  pod 'ChannelIOSDK', podspec: 'https://mobile-static.channel.io/ios/latest/xcframework.podspec'
+
 
   target 'BegineerAssignmnetTests' do
     inherit! :search_paths

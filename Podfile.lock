@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.2)
+  - ChannelIOSDK (8.4.2)
   - Differentiator (4.0.1)
   - Kingfisher (6.2.1)
   - Realm (10.7.4):
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - ChannelIOSDK (from `https://mobile-static.channel.io/ios/latest/xcframework.podspec`)
   - Kingfisher
   - RealmSwift
   - RxAlamofire
@@ -55,8 +57,13 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
 
+EXTERNAL SOURCES:
+  ChannelIOSDK:
+    :podspec: https://mobile-static.channel.io/ios/latest/xcframework.podspec
+
 SPEC CHECKSUMS:
   Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  ChannelIOSDK: ea677d51c904e84faea3a40ef7ba5374a23e48d0
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   Realm: f08ce1a85649a41303ecfe1cbd914c62e9e6d710
@@ -69,6 +76,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: d692b224d731cef8ac6265b10f3cc7e6f416be9f
+PODFILE CHECKSUM: 7ab960d9b2280dd038bf6c4e310bc79ef471d756
 
 COCOAPODS: 1.10.1
