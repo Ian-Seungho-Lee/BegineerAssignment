@@ -8,18 +8,18 @@
 
 import Foundation
 
-protocol BookDetailPresenterInterface: class {
+protocol BookDetailPresenterInterface: AnyObject {
   var interactor: BookDetailInteractorInterface { get }
   var router: BookDetailRouterInterface { get }
   
   func transform(to inputs: BookDetailPresenter.Input) -> BookDetailPresenter.Output
 }
 
-protocol BookDetailInteractorInterface: class {
+protocol BookDetailInteractorInterface: AnyObject {
   func fetchMemobyISBN(isbn: String) -> BookWithMemoObject?
   func saveMemoWithISBN(isbn: String, memo: String) -> Void
 }
 
-protocol BookDetailRouterInterface: class {
+protocol BookDetailRouterInterface: AnyObject {
   func popViewController()
 }

@@ -29,8 +29,6 @@ extension BookDetailInteractor {
   func saveMemoWithISBN(isbn: String, memo: String) -> Void {
     let object = BookWithMemoObject(isbn: isbn, memo: memo)
     
-    // throw라서 fail할수도 있는것 아닌가용 으음
-    
     try! realm.write {
       realm.add(object, update: .modified)
     }
