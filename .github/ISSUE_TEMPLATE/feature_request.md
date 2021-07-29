@@ -1,20 +1,21 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: 기능을 제안하거나, 기능 개발 상황이 있을때 작성합니다.
 title: ''
-labels: ''
+labels: 'Feature'
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## 기능 소개
+<!-- 
+피쳐의 도입 배경과 간략한 설명을 작성합니다.
+-->
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## 기획 문서
+<!--
+줄글은 업데이트가 되지 않아 지양합니다. 지속적으로 업데이트가 가능한 노션 문서를 링크합니다.
+-->
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## References
+<!-- TF가 있다면 TF 채널을 링크하고, 또는 참고 가능한 링크를 첨부합니다.-->
